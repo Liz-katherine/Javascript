@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <style>
+        .micontenedor {
+        
+            width: 200px;
+            height: 200px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+    <script>
+       
+        function rojo(x) { // poner fondpo rojo a la etiqueta cuyo id enviamos en la funcion
+            idx=document.getElementById(x)
+            idx.style.backgroundColor = 'red';
+            idx.style.borderWidth = '5px';
+            idx.style.borderColor = 'black'; 
+            idx.style.borderStyle = 'solid';
+        }
+        function verde() {
+            document.getElementById('id1').style.backgroundColor = 'green';
+            document.getElementById('id1').style.borderWidth = '0px';
+        }
+
+        function anchura100por100() {
+            document.getElementById('id1').style.width = '100%';
+        }
+
+        function anchurainicial() {
+            document.getElementById('id1').style.width = '200px';
+        }
+
+
+     function circulo(){
+           document.getElementById('id1').style.borderRadius='50%'
+        } 
+        function cuadrado(){
+            document.getElementById('id1').style.borderRadius='0';
+        }
+    </script>
+</head>
+<body>
+    <button type="button"  onclick="rojo('id1')" >rojo 1</button>
+     <button type="button"  onclick="rojo('id2')" >rojo 2</button>
+     <button type="button"  onclick="rojo('id3')" >rojo 3</button>
+    <button type="button"  onclick="verde()" >verde</button>
+    <button type="button"  onclick="circulo()" >circulo</button>
+    <button type="button" onclick="cuadrado()">cuadrado</button>
+    <button type="button" onclick="anchura100por100()">Anchura 100%</button>
+     <button type="button" onclick="anchurainicial()">Anchura initial-scale</button>
+    <div class="micontenedor" id="id1">
+
+    </div>
+    <div class="micontenedor" id="id2">
+
+    </div>
+    <input type="text" id="id3" placeholder="Introduce texto aquí">
+ <!--    <script>
+             altura = prompt("Por favor, introduce altura contenedor:");
+             document.getElementById('id1').style.height = `${altura}px`;
+    </script> -->
+
+</body>
+</html>

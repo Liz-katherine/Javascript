@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>semaforo</title>
+</head>
+<body>
+
+    <style>
+        #contenedor {
+        position: relative;
+        height: 100px ;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+	    background-color:aquamarine;
+	    padding: 40px;
+	    max-width: 100px;
+    	margin: 8px auto; 
+    }
+        #circulo{ 
+        position: center;
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        border-radius: 150%; */
+    }
+        .circulo1 {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border-radius: 50%;
+    }
+
+
+    </style>
+
+
+    <div class="contenedor">
+        <div id="circulo" class="verde"></div>
+        <div id="circulo1" class="rojo"></div>
+         <div id="circulo2" class="ambar"></div>
+         </div>
+         
+<button onclick="luz()"luz</button>
+
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Operadores</title>
+
+<style type="text/css">
+#container {
+	background-color:antiquewhite;
+	padding: 20px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.rojo {
+	color: #F00;
+	font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+
+
+<h1>JavaScript evento onclick</h1>
+<h2>document.getElementById("id").src</h2>
+<p>En este caso JavaScript cambia atributo src de una imagen.</p>
+
+    <button onclick="verFoto('01')">FOTO 01</button>
+    <button onclick="verFoto('02')">FOTO 02</button>
+    <button onclick="verFoto('03')">FOTO 03</button>
+    <button onclick="verFoto('04')">FOTO 04</button>
+    <br>
+    <h1 id="titulo">foto 01</h1>
+    <img id="foto" src="img/foto01.jpg" width="100%" >
+</div>
+<script>
+function verFoto(num) {
+    // num va a valer 01, 02,03 o 04
+    titulo = "Foto " + num;
+    console.log('🟩titulo ' +  titulo);
+    // cambiar el título
+    document.getElementById("titulo").innerHTML = titulo;
+    // obtener el src de la imagen
+    imagen = 'img/foto'+num+'.jpg';
+    console.log('🖼️ imagen : ' + imagen);
+    // cambiar el src de la imagen
+    document.getElementById("foto").src = imagen;
+}
+</script>
+</body>
+</html>

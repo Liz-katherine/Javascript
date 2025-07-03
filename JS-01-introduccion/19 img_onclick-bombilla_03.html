@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Operadores</title>
+
+<style type="text/css">
+#container {
+	background-color:antiquewhite;
+	padding: 20px;
+	height: 400px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.rojo {
+	color: #F00;
+	font-size: 18px;
+}
+.btn {
+    cursor: pointer;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<h1>JavaScript evento onclick</h1>
+<h2>document.getElementById("id").src</h2>
+<p>En este caso JavaScript cambia atributo src de una imagen.</p> 
+<img src="img/foto01.jpg" class="btn" onclick="onoff()" alt="Foto de una bombilla encendida" width="200" height="200">
+<p>En este caso JavaScript cambia el atributo src de una imagen.</p>
+<button onclick="onoff('')" id="boton">ON</button>
+<img id="bombilla" src="img/bombilla-off.gif" >
+<img id="bombilla2" src="img/bombilla-off.gif" >
+<img id="bombilla3" src="img/bombilla-off.gif" >
+<script>
+    function onoff()  {  
+       
+        if (document.getElementById('boton').innerHTML=='ON') {   
+            document.getElementById('bombilla').src="img/bombilla-on.gif";
+            document.getElementById('bombilla2').src="img/bombilla-on.gif";
+            document.getElementById('bombilla3').src="img/bombilla-on.gif";
+            document.getElementById('boton').innerHTML="OFF";
+            document.getElementById('boton').style.backgroundColor="red";
+            document.getElementById('boton').style.color="white";   
+        } else {
+            document.getElementById('bombilla').src="img/bombilla-off.gif";
+            document.getElementById('bombilla2').src="img/bombilla-off.gif";
+            document.getElementById('bombilla3').src="img/bombilla-off.gif";
+            document.getElementById('boton').innerHTML="ON"; 
+            document.getElementById('boton').style.backgroundColor="green";
+            document.getElementById('boton').style.color="white";     
+        }
+
+    }
+</script>
+
+</div>
+</body>
+</html>

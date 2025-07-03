@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semaforo</title>
+</head>
+<body>
+   
+  <style>
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: #f0f0f0;
+    }
+
+    .semaforo {
+      width: 100px;
+      background: #333;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .luz {
+      width: 60px;
+      height: 60px;
+      margin: 15px auto;
+      border-radius: 50%;
+      background: gray;
+      transition: background 0.3s;
+    }
+
+    .rojo {
+      background: red;
+    }
+
+    .amarillo {
+      background: yellow;
+    }
+
+    .verde {
+      background: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="semaforo" id="semaforo">
+    <div class="luz" id="luzRoja"></div>
+    <div class="luz" id="luzAmarilla"></div>
+    <div class="luz" id="luzVerde"></div>
+  </div>
+
+  <script>
+    let estado = 0; // 0: rojo, 1: amarillo, 2: verde
+
+    const luzRoja = document.getElementById('luzRoja');
+    const luzAmarilla = document.getElementById('luzAmarilla');
+    const luzVerde = document.getElementById('luzVerde');
+    const semaforo = document.getElementById('semaforo');
+
+    function actualizarSemaforo() {
+      luzRoja.classList.remove('rojo');
+      luzAmarilla.classList.remove('amarillo');
+      luzVerde.classList.remove('verde');
+
+      if (estado === 0) {
+        luzRoja.classList.add('rojo');
+      } else if (estado === 1) {
+        luzAmarilla.classList.add('amarillo');
+      } else {
+        luzVerde.classList.add('verde');
+      }
+    }
+
+    semaforo.addEventListener('click', () => {
+      estado = (estado + 1) % 3;
+      actualizarSemaforo();
+    });
+
+    // Estado inicial
+    actualizarSemaforo();
+  </script>
+
+</body>
+</html>

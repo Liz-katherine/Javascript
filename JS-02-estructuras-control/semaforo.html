@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>IF / ELSE</title>
+    <style>
+
+    /* #circulo{
+
+        width: 300px;
+        height: 300px;
+        border-radius: 300px; */
+    /* } */
+
+ #semaforo{
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        border-radius: 150%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+
+   </style>
+</head>
+<body>
+
+       <h1>IF ANIDADO</h1>
+       <div id="semaforo"></div>
+
+
+
+       <script>
+
+           color=prompt("¿En qué color está el semáforo?","");
+           color=color.toLowerCase();
+
+           if (color == "verde"){
+               document.write("<p>Puedes pasar, está en VERDE </p>");
+               document.getElementById('circulo').style.backgroundColor='green';
+
+           }else{
+               if (color == "rojo"){
+                   document.write("<p>No puedes pasar, está ROJO!</p>");
+               }else{
+                   if (color == "naranja"){
+                       document.write("<p>Todavía no, está en NARANJA, queda poco</p>");
+                       document.getElementById('circulo').style.backgroundColor='orange';
+                   }else{
+                       document.write("<p>¿¿ "+color+" ?? Solo puedes escribir verde, rojo o naranja.</p>");
+                   }
+               }
+           }
+
+
+       </script>
+
+   </div>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>19_onclick-bombilla_03.html</title>
+
+<style type="text/css">
+#container {
+	background-color:antiquewhite;
+	padding: 20px;
+	height: 400px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.rojo {
+	color: #F00;
+	font-size: 18px;
+}
+.botones{
+    cursor: pointer;
+}
+
+#intOFF{
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<h1>JavaScript evento onclick</h1>
+<h2>document.getElementById("id").src</h2>
+<p>En este caso JavaScript cambia atributo src de una imagen.</p>
+    
+    
+<button onclick="onoff('bombilla')" id="boton">ON</button>
+
+
+<img src="img/ON.png" onclick="encender()" alt="" id="intON" class="botones">
+ <img src="img/OFF.png" onclick="apagar()" alt="" id="intOFF"  class="botones">
+<!-- <button onclick="apagar()" id="btn-off"> </button>
+<img src="img/ON.png" alt=""  onclick="encender()" > -->
+
+<img id="bombilla" src="img/bombilla-off.gif" class="foco" alt="">
+
+<script>
+    function onoff(iden){
+              
+       
+        if (document.getElementById('boton').innerHTML=='ON') {   
+            document.getElementById(iden).src="img/bombilla-on.gif";
+            document.getElementById('boton').innerHTML="OFF";  
+            
+
+
+        } else {
+            document.getElementById(iden).src="img/bombilla-off.gif";
+            document.getElementById('boton').innerHTML="ON";  
+              
+        }
+    }
+
+    function encender(){
+            console.log('encender');
+       
+            document.getElementById('bombilla').src="img/bombilla-on.gif";
+            document.getElementById('intON').style.display='none';
+             document.getElementById('intOFF').style.display='block';
+
+    }
+
+     function apagar(){
+        document.getElementById('bombilla').src="img/bombilla-off.gif";
+        document.getElementById('intON').style.display='block';
+        document.getElementById('intOFF').style.display='none';
+
+    }
+
+</script>
+
+
+
+    
+
+</div>
+</body>
+</html>
+
+
