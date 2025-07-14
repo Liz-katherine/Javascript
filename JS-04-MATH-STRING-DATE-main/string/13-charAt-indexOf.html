@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>charAt()-indexOf()</h1>
+   <p>Pedir al usuario que escriba una palabra para comprobar si termina en número.</p>
+   
+    <button onclick="com()">COMPROBAR</button>
+    <p id="txt"></p>
+
+<script>
+    
+    function com(){
+        palabra=prompt("Escribe una palabra");
+        numeros="1234567890";
+        ultima=palabra.charAt(palabra.length-1);
+        //alert(ultima);
+    
+        if(numeros.indexOf(ultima) != -1){
+            document.getElementById("txt").innerHTML="ERROR! No puede TERMINAR en número";
+        }else{
+            document.getElementById("txt").innerHTML="BIEN, termina en letra";
+        }
+   } 
+
+</script>
+
+</div>
+    
+</body>
+</html>

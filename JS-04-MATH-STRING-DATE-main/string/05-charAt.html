@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>charAt()</h1>
+   <p>El método charAt() devuelve el carácter en el índice especificado de una cadena. <br>
+   El índice del primer caácter es el 0, el segundo 1 y así sucesivamente.<br>
+   
+   <h2>length</h2>
+   <p>Propiedad length nos devuelve la longitud de la cadena(texto), desde 0.</p>
+   
+<script>
+    
+    ciudad=prompt("Escribe una ciudad");
+    document.write("<p>La ciudad es: "+ciudad+"</p>");
+    
+    primera=ciudad.charAt(0);
+    document.write("<p>La primera letra de "+ciudad+" es "+primera+" </p>");
+    
+    //ultima=ciudad.charAt(3);
+    //document.write("<p>La última letra de "+ciudad+" es "+ultima+" </p>");
+
+    /* length */
+    //lon=ciudad.length;
+    //document.write("<p>La longitud de la palabra "+ciudad+" es "+lon+"</p>");
+
+    ultima=ciudad.charAt(ciudad.length-1);
+    document.write("<p>La última letra de la palabra "+ciudad+" es "+ultima+"</p>");
+    
+</script>
+
+</div>
+    
+</body>
+</html>

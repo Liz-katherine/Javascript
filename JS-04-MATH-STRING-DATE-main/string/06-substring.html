@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>substring()</h1>
+   <p>Sintaxis: substring(inicio,fin)</p>
+   <p>El método substring() extrae los caracteres de una cadena, entre los índices especificados, y devuelve la nueva subcadena.</p>
+   <p>Este método extrae los caracteres de una cadena entre "inicio" y "fin", sin incluir el "fin" en sí.</p>
+
+   
+
+<script>
+    
+    palabra="PREDETERMINADO";
+    
+    // devuelve 0,1,2 núnca incluye el último
+    prefijo=palabra.substring(0,3);
+    
+    document.write("<p>La palabra es: "+palabra+" </p>");
+    document.write("<p>Las tres primeras letras son: "+prefijo+" </p>");
+    
+    
+    //sufijo=palabra.substring(11,14);
+    sufijo=palabra.substring(palabra.length-3,palabra.length);
+    // si no sabemos la longitud de la palabra tenemos que poner de esta manera
+    document.write("<p>Las últimas letras son: "+sufijo+" </p>");
+    
+</script>
+
+</div>
+    
+</body>
+</html>

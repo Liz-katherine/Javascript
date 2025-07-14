@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>charAt()-indexOf()</h1>
+    <p>Comprobar si son SOLO letras !!!</p>
+
+
+<script>
+    
+   texto=prompt("Solo letras");
+    var letras="abcdefghyjklmnñopqrstuvwxyz";
+
+        texto = texto.toLowerCase();
+    
+        for(i=0; i<texto.length; i++){
+            if (letras.indexOf(texto.charAt(i)) == -1){
+                alert("Por favor teclea solo letras!!");
+               bueno=0;
+                break;
+            }else{
+                bueno=1; 
+            }
+        }
+        if(bueno == 1){
+            alert("TODO BIEN");
+        }
+
+</script>
+
+</div>
+    
+</body>
+</html>

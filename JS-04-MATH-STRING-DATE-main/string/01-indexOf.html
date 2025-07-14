@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+ 
+ 
+  
+<div id="container">
+   
+   <h1>Substring</h1>
+   <p>El método indexOf() devuelve la posición de la primera aparición de un valor especificado en una cadena. <br>
+   Este método devuelve -1 si el valor de búsqueda núnca ocurre. <br>
+   Es sensible a mayúsculas. <br>
+   El índice del primer carácter es el 0, el segundo es 1 y así sucesivamente. <br>
+   
+   *** sirve para validar formularios, o emails (si tiene o no tiene @, para teléfonos...) = textos
+   </p>
+   
+
+<script>
+    
+    palabra="kaixo";
+    // la x chequea el texto y te dice en qué posición está.
+    localizando=palabra.indexOf("o"); 
+    //localizando=palabra.indexOf("ix"); //devuelve la posición de la primera letra
+    
+    document.write("<p>La palabra es: "+palabra+" </p>");
+    document.write("<p>Indice "+localizando+"</p>");
+    // empieza a contar desde 0 por lo que si está en la posición 3, dirá que se encuentra en la posición 3
+    
+    
+</script>
+
+</div>
+    
+</body>
+</html>

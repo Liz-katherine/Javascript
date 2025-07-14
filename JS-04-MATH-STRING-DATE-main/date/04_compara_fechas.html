@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Comparando fechas</title>
+
+</head>
+
+<body>
+
+
+
+
+<script>
+
+fecha=new Date();
+    
+actual=fecha.getFullYear();
+
+anio=prompt("Teclea el año de tu nacimiento:","");
+
+	if (anio > actual || anio<=1900){
+	alert("Imposible! no has podido nacer en "+anio);
+        } else if(anio == actual) {
+        alert("Eres un bebé y no sabes utilizar esta aplicación.");
+	       }else{
+	       edad=(actual-anio);
+	       alert("Disfruta de tus "+edad+ " años!")
+	       }
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<style type="text/css">
+body {
+	background-color: #CCC;
+}
+#container {
+	max-width: 700px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFF;
+	padding: 10px;
+
+}
+</style>
+
+<body>
+
+<div id="container">
+<h1>Date()-Fecha</h1>
+<p>El objeto Date se utiliza para trabajar con fechas y horas.</p>
+<p>Fecha objetos son creados con new Date().</p>
+
+<h2>Ejemplo de una página con calendario que da el mes en letra</h2>
+
+<p id="txt1"></p>
+<p id="txt2"></p>
+   
+<script>
+// crear el objeto date en este documento
+var hoy=new Date();
+
+dia=hoy.getDate();
+    
+mes=hoy.getMonth();// 0 - 11
+//alert(mes);
+mes=mes+1;
+if(mes < 10){
+	mes="0" + mes;
+}
+ano=hoy.getFullYear();
+    
+document.getElementById("txt1").innerHTML=dia+"-"+mes+"-"+ano;
+
+    
+    
+    
+mes=hoy.getMonth();
+
+if (mes == 0) { nombremes="Enero"};
+if (mes == 1) nombremes="Febrero";
+if (mes == 2) nombremes="Marzo";
+if (mes == 3) nombremes="Abril";
+if (mes == 4) nombremes="Mayo";
+if (mes == 5) nombremes="Junio";
+if (mes == 6) nombremes="Julio";
+if (mes == 7) nombremes="Agosto";
+if (mes == 8) nombremes="Septiembre";
+if (mes == 9) nombremes="Octubre";
+if (mes == 10) nombremes="Noviembre";
+if (mes == 11) nombremes="Diciembre";
+
+//mostrar la fecha de hoy 
+document.getElementById("txt2").innerHTML=dia+" de "+nombremes+" del "+ano;
+
+
+</script>
+
+
+</div>
+</body>
+</HTML>
+

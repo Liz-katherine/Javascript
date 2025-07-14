@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+
+<title>Math.random</title>
+<style>
+    
+    img{
+        width: 100%;
+    }
+    </style>
+</head>
+
+<body>
+
+<h1>Math.random()</h1>
+<h2>Mostrar Imagenes Aleatoriamente</h2>
+
+<p>El objeto Math le permite realizar tareas matemáticas.</p>
+<p>Un uso común del objeto Math es crear un número aleatorio:Math.random();</p>
+<p>Math.random () devuelve un número aleatorio entre 0 (inclusive), y 1 (exclusivo):</p>
+
+<div id="foto">
+
+</div>
+
+
+<script>
+    //alert(Math.random());
+    //devuelve un numero entre 1 y 6
+    n=Math.ceil((Math.random()*6));
+    //alert(n);
+    document.getElementById("foto").innerHTML="<img src='imagenes/bar0"+n+".jpg'>";
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

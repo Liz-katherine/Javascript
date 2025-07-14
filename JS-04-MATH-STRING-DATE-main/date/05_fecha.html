@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Comparando fechas</title>
+
+</head>
+<body>
+
+<h1>Poner la fecha del dia:</h1>
+
+<script>
+
+fecha = new Date();
+
+//Arreglar la hora en horario de 12 h. y mostrando si es am o pm
+     hora = fecha.getHours();
+     minutos = fecha.getMinutes();
+
+//Si la hora obtenida es mayor 	que 12 sera de tarde P.M y sino de mañana A.M.
+if (hora >= 12) {
+   ampm = " P.M.";
+ } else {
+   ampm = " A.M.";
+ }
+//Si la hora obtenida es mayor 	que 12 le restaremos 12.
+if (hora > 12) {
+   hora = hora - 12;
+ }
+ //Si coincide que la hora es 0 seran las 12
+if (hora == 0) {
+  hora = 12;
+ }
+//Arreglamos los minutos cuando solo muestran un dígito.
+if (minutos < 10) {
+  minutos = "0" + minutos;
+ }
+//Escribimos la hora con el formato trabajado en el documento.
+document.write("<p>"+ "Hora local " + hora + ":" + minutos + ampm+"</p>" );
+
+</script>
+
+
+</body>
+</html>

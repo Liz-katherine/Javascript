@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>charAt()-indexOf()</h1>
+   <p>Pedir al usuario que escriba una palabra para comprobar si empieza por número.</p>
+
+
+<script>
+    
+    palabra=prompt("Escribe una palabra");
+    numeros="1234567890";
+    primera=palabra.charAt(0);
+    //alert(primera);
+    
+    if(numeros.indexOf(primera) != -1){
+        alert("ERROR! No puede empezar por números");
+    }else{
+        alert("Bien");
+    }
+    
+    
+    
+    /* otra opción
+    
+    while(numeros.indexOf(primera)!=-1){
+        alert("ERROR! No puede empezar por números");
+        palabra=prompt("Escriba una palabra");
+        primera=palabra.charAt(0);
+    }
+    
+    alert("Correcto!");
+*/
+    
+
+</script>
+
+</div>
+    
+</body>
+</html>

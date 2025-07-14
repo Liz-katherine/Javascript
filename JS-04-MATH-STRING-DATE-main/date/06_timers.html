@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+
+
+</head>
+
+<body  onload="lahora()">
+
+<h1>Date()-Fecha</h1>
+<p>El objeto Date se utiliza para trabajar con fechas y horas.</p>
+<p>Fecha objetos son creados con new Date().</p>
+
+<h2>setTimeout()</h2>
+
+<p id="txt"></p>
+
+<button id="parar">Parar reloj</button>
+
+
+
+
+<script>
+   const boton = document.getElementById("parar");
+   boton.addEventListener("click",function(){ clearTimeout(crono);});
+   window.addEventListener("load",lahora);
+   let crono;
+    
+    function lahora(){
+        const hoy=new Date();
+        
+        let h=hoy.getHours();
+        let m=hoy.getMinutes();
+        let s=hoy.getSeconds();
+       // añadir 0 si es menor que 10
+        m=ceros(m);
+        s=ceros(s);
+        
+        document.getElementById("txt").innerHTML=h+":"+m+":"+s;
+        // actualizar cada segundo
+        crono = setTimeout("lahora()",1000);
+    }
+
+    
+       
+        
+    function ceros(i){
+        if (i < 10){
+              i="0"+i;
+          }
+        return i;
+    }
+        
+    
+
+
+
+</script>
+
+</body>
+</html>
+

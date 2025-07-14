@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>charAt()-indexOf()</h1>
+   <p>Pedir al usuario que escriba una palabra para comprobar si empieza por vocal o no, y si termina en vocal o no.</p>
+
+   <p id="pal"></p>
+   <p id="txt1"></p>
+   <p id="txt2"></p>
+
+<script>
+    
+    
+    
+    palabra=prompt("Escribe una palabra","");
+    palabra=palabra.toUpperCase();
+    vocales="AEIOU";
+    primera=palabra.charAt(0);
+    ultima=palabra.charAt(palabra.length-1);
+    
+    if((vocales.indexOf(primera)!= -1) && (vocales.indexOf(ultima) != -1)){
+        
+        alert("La palabra empieza y termina por vocal");
+        
+            }else if((vocales.indexOf(primera)!=-1) && (vocales.indexOf(ultima)==-1)){
+        
+            alert("La palabra empieza por vocal pero acaba en consonante");
+        
+                }else if((vocales.indexOf(primera)==-1) && (vocales.indexOf(ultima)!=-1)){
+        
+                alert("La palabra empieza por consonante pero acaba en vocal");
+        
+                    }else{
+                        
+                    alert("La palabra empieza y termina en consonante");
+                    }
+    
+
+</script>
+
+</div>
+    
+</body>
+</html>

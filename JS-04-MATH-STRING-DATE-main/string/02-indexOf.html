@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>indexOf()</h1>
+   <p>El método indexOf() devuelve la posición de la primera aparición de un valor especificado en una cadena. <br>
+   Este método devuelve -1 si el valor de búsqueda núnca ocurre. Si no está, sale -1.<br>
+   Es sensible a mayúsculas. <br>
+   El índice del primer carácter es el 0, el segundo es 1 y así sucesivamente. <br>
+   
+   *** sirve para validar formularios, o emails (si tiene o no tiene @, para teléfonos...) = textos
+   </p>
+   
+
+<script>
+    
+    // definir un valor
+    palabra="lunes";
+    // pedir dato, una letra
+    letra=prompt("Escriba una letra para buscar en una cadena de texto!","");
+    // pasar a minuscula
+    letra=letra.toLowerCase();
+    // buscar esa letra en la cadena de texto, dentro de la palabra lunes
+    localizando=palabra.indexOf(letra); 
+    // comprobar
+    if(localizando != -1){
+        document.write("<p>La letra \""+letra+"\" SI existe en la palabra Lunes!!</p>");
+    } else {
+        document.write("<p>La letra \""+letra+"\" NO existe en la palabra Lunes!! </p>");
+    }
+    
+    
+</script>
+
+</div>
+    
+</body>
+</html>

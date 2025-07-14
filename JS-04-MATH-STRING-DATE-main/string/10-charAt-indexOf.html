@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>charAt()-indexOf()</h1>
+<p>Escribir un número de 9 cifras !!!</p>
+
+
+<script>
+    
+    x=prompt("Un número de 9 cifras");
+    numeros="1234567890"; 
+    
+    if(x.length != 9){
+        alert("Debe introducir un número de 9 cifras");
+    }else{
+        for(i=0; i<=8; i++){
+            num=x.charAt(i);
+                if(numeros.indexOf(num)==-1){
+                    alert("Por favor teclea solo números");
+                    bueno="no";
+                    break;// si encuentra una letra sale del bucle
+                }else{
+                    bueno="si";
+                }
+        } // fin for
+        
+        if(bueno=="si"){
+            alert("Número correcto!!");
+        }
+    }
+    
+</script>
+
+</div>
+    
+</body>
+</html>

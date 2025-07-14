@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>charAt()-indexOf()</h1>
+   <p>Pedir al usuario que escriba una palabra para comprobar si termina en número.</p>
+   
+    <p id="txt"></p>
+
+<script>
+    dni=prompt("Escribe tu DNI !!");
+    numeros="1234567890";
+    ultima=dni.charAt(dni.length-1);
+    //alert(ultima);
+    if(dni.length!=9){
+        document.getElementById("txt").innerHTML="Debe introducir 9 carácteres!!!";
+        }else if(numeros.indexOf(ultima) != -1){
+        document.getElementById("txt").innerHTML="ERROR! No puede TERMINAR en número";
+    }else{
+        document.getElementById("txt").innerHTML="BIEN, termina en letra y son 9";
+    }
+    
+
+</script>
+
+</div>
+    
+</body>
+</html>

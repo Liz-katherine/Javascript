@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>charAt()-indexOf()</h1>
+   <p>Pedir al usuario que escriba una palabra para comprobar si empieza por vocal o no</p>
+
+   <p id="pal"></p>
+   <p id="txt"></p>
+
+<script>
+    
+    palabra=prompt("Escribe una palabra","");
+    palabra=palabra.toUpperCase();
+    
+    // definir variable con las vocales para comprobar
+    vocales="AEIOU";
+    
+    document.getElementById("pal").innerHTML="La palabra es "+palabra;
+    
+    primera=palabra.charAt(0);
+    //alert(primera);
+    
+    sino=vocales.indexOf(primera);
+    //alert(sino);
+    // si es distinto a -1 (que sí que empieza por vocal), mandamos SÍ.
+    if(sino != -1){ 
+        document.getElementById("txt").innerHTML="Sí, empieza por vocal";
+    }else{
+        document.getElementById("txt").innerHTML="No, no empieza por vocal";
+    }
+    
+</script>
+
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<style>
+
+body{
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+#container {
+	max-width: 800px;
+    margin: auto;
+	background-color:rgba(255,255,255,0.7);
+	padding: 10px;
+
+}
+</style>
+<title>Math - Fondo</title>
+
+
+
+
+</head>
+
+<body>
+
+
+
+<div id="container">
+
+<h1>Math.random()</h1>
+<h2>Mostrar Fondo Aleatoriamente</h2>
+
+<p>El objeto Math le permite realizar tareas matemáticas.</p>
+<p>Un uso común del objeto Math es crear un número aleatorio:Math.random();</p>
+<p>Math.random () devuelve un número aleatorio entre 0 (inclusive), y 1 (exclusivo):</p>
+
+
+</div>
+
+<script>
+    // devuelve un numero entre 1 y 4
+    n=Math.ceil(Math.random()*4);
+    document.body.style.backgroundImage = "url(imagenes/f"+n+".jpg)";
+    //document.getElementById("nombre").style.backgroundImage = "url(imagenes/f"+n+".jpg)";
+</script>
+
+</body>
+</html>

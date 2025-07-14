@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+    <style>
+    
+        #container{
+            padding: 100px;
+            font-family: helvetica;
+            line-height: 26px;
+        }
+    
+    </style>
+</head>
+<body>
+  
+<div id="container">
+   
+   <h1>lastIndexOf()</h1>
+   <p>El método indexOf() devuelve la posición de la última aparición de un valor especificado en una cadena. Checkea o comprueba la cadena de texto al revés del indexOf() <br>
+   Este método devuelve -1 si el valor de búsqueda núnca ocurre. Si no está, sale -1.<br>
+   Es sensible a mayúsculas. <br>
+   El índice del primer carácter es el 0, el segundo es 1 y así sucesivamente. <br>
+   
+   *** sirve para validar formularios, o emails (si tiene o no tiene @, para teléfonos...) = textos <br>
+   
+   La posición siempre es la misma = 0 1 2 3 4 5 6 .... núnca se altera.
+   </p>
+   
+
+<script>
+    
+    palabra="donostia";
+    
+    uno=palabra.indexOf("o");
+    dos=palabra.lastIndexOf("o");
+    
+    document.write("<p>La palabra es: "+palabra+". </p>");
+    document.write("<p>La letra o etá en la posición "+uno+"</p>");
+    document.write("<p>La letra o etá en la posición "+dos+"</p>");
+    
+    x=palabra.lastIndexOf("tia");
+    document.write("<p>La cadena tia está en la posición "+x+"</p>");
+    
+    
+</script>
+
+
+</div>
+    
+</body>
+</html>

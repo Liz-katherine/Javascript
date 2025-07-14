@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>alerta_hora</title>
+
+
+
+
+<style type="text/css">
+body {
+	background-color: #CCC;
+}
+#container {
+	max-width: 700px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFF;
+	padding: 10px;
+
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+<h1>Date()-Fecha</h1>
+
+<p>El objeto Date se utiliza para trabajar con fechas y horas.</p>
+<p>Fecha objetos son creados con new Date().</p>
+<p><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank"><img src="MDN.PNG" width="20px"/>referencia MDN</a></p>
+<h2>Mostrar Ejemplo</h2>
+
+<p id="txt1"></p>
+<p id="txt2"></p>
+
+
+
+<script>
+    
+let fecha=new Date();
+    
+document.getElementById("txt1").innerHTML=fecha;
+    
+// mostrar la hora
+hora=fecha.getHours();
+ 
+// mostrar los minutos    
+minutos=fecha.getMinutes();
+	if(minutos < 10){
+		minutos="0"+minutos;
+	}
+// mostrar los segundos      
+segundos=fecha.getSeconds();
+	if(segundos < 10){
+		segundos="0"+segundos;
+	}
+// mostrar 	
+document.getElementById("txt2").innerHTML=hora+":"+minutos+":"+segundos;
+	
+</script>
+
+</div>
+
+</body>
+</html>

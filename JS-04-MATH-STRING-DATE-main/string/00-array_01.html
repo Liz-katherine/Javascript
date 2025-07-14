@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    
+
+</head>
+<body>
+    <h1>Arrays</h1>
+    <p>Mira la consola de Javascript</p>
+    <div id="resultado"></div>
+    <script>
+       let calificaciones = [8,9,7,5];
+       let materias = ['Html','CSS','JS','SEO'];
+
+        console.log('Calificaciones del estudiante:');
+
+        // Mostrar todas las calificaciones y calcular el promedio
+        let suma = 0;
+        for (let i = 0; i < calificaciones.length; i++) {
+            console.log(`Examen ${i + 1}: ${calificaciones[i]}`);
+            suma += calificaciones[i];
+        }
+        let promedio = suma / calificaciones.length;
+        console.log(`Promedio: ${promedio}`);
+
+        
+            
+       
+       
+    </script>
+</body>
+</html>
