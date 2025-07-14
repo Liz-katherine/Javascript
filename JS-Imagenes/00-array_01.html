@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+    <style>
+        .notas{
+            td {
+            border : 1px solid black;
+            }
+        }
+        .final {
+            font-weight: bolder;
+        }
+
+    </style>
+    
+
+</head>
+<body>
+    <h1>Arrays</h1>
+    <p>Mira la consola de Javascript</p>
+    <div id="resultado"></div>
+    <script>
+       let calificaciones = [8,9,7,5,8];
+       //            indice  0 1 2 3
+       let materias = ['Html','CSS','JS','SEO','sass'];
+
+        console.log('Calificaciones del estudiante:');
+
+        // Mostrar todas las calificaciones y calcular el promedio
+        let suma = 0;
+        let resultado = '<table class="notas">';
+        for (let i = 0; i < calificaciones.length; i++) {
+            resultado +=   '<tr>';
+            resultado += `<td class="materias">${materias[i]}</td>`;
+            resultado += `<td>${calificaciones[i]}</td>`;
+            resultado += '</tr>';
+            suma += calificaciones[i];
+            console.log(`Examen ${i + 1}: ${calificaciones[i]}`);
+            console.log(`➕ ${suma}`);
+            
+        }
+        
+        let promedio = suma / calificaciones.length;
+        resultado += `<tr><td class="final">media</td><td>${promedio}</td></tr>`;
+        resultado += '</table>';
+        console.log(`Promedio: ${promedio}`);
+        document.getElementById('resultado').innerHTML=resultado;
+        
+            
+       
+       
+    </script>
+</body>
+</html>
