@@ -1,0 +1,65 @@
+# Ejercicios de JavaScript con Funciones y Formularios
+
+Estos ejercicios están pensados para practicar la lectura de inputs, la ejecución de funciones y la visualización de resultados en el navegador.
+
+---
+
+## 🟢 Nivel 1 - Básico
+
+### 1. Calculadora de Propina 🧾
+> Pide al usuario el importe de una cuenta y el porcentaje de propina que quiere dejar. Muestra el total a pagar.
+
+---
+
+### 2. Conversor de Celsius a Fahrenheit 🌡️
+> El usuario introduce una temperatura en grados Celsius y se muestra su equivalente en Fahrenheit.
+
+---
+
+### 3. Calculadora de Edad 📅
+> Introduce el año de nacimiento y calcula la edad actual.
+
+---
+
+## 🟡 Nivel 2 - Medio
+
+### 4. Calculador de Gastos Mensuales 💸
+> El usuario introduce sus gastos en comida, transporte y ocio. Se calcula el total mensual.
+
+---
+
+### 5. Detector de Mayor o Menor de Edad 🧒👨
+> Introduce tu edad y muestra si eres menor o mayor de edad.
+
+---
+
+### 6. Calculadora de IMC (Índice de Masa Corporal) ⚖️
+> El usuario introduce su peso (kg) y altura (m). Se calcula su IMC y se muestra una interpretación básica:
+> - Bajo peso: < 18.5
+> - Normal: 18.5–24.9
+> - Sobrepeso: 25–29.9
+> - Obesidad: 30 o más
+
+
+(IMC = peso (kg) / estatura (m²))
+
+---
+
+## 🔵 Nivel 3 - Avanzado
+
+### 7. Calculadora de letra del DNI 🆔
+> El usuario introduce su número de DNI sin letra (ej. `12345678`) y el programa calcula y muestra la letra correcta usando el algoritmo oficial.
+
+---
+
+### 8. Calculadora de tarifa eléctrica ⚡
+> Según el consumo en kWh, se calcula el coste con una tarifa escalonada:
+> - Hasta 100 kWh → 0.15 €/kWh
+> - De 101 a 200 kWh → 0.20 €/kWh
+> - Más de 200 kWh → 0.25 €/kWh
+
+> Se debe mostrar el total a pagar según el tramo.
+
+---
+
+

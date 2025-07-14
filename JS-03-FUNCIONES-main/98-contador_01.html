@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicios JS Cotidianos</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 8px 12px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .resultado {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Práctica con funciones en JavaScript</h1>
+
+  <!-- CONTADOR  -->
+  <div class="card">
+    <h2>1. Contador</h2>
+    <label>Contador : <input type="number" id="contador" readonly><label>
+    <button onclick="incrementar()" id="incrementar">Incrementar (0)</button></label>
+    <label><button onclick="decrementar()" id="decrementar">Decrementar (0)</button></label>
+    <div class="resultado" id="resultadoContador">0</div>
+    <hr>
+    <!-- ajustes-->
+     <!-- valore del incremento -->
+    <label>Incremento : <input type="number" id="incremento" value="1" ><label>
+    <button onclick="cambiarIncremento()" id="incremento">Incremento</button></label>
+  </div>
+
+ 
+  <script>
+        // INICIALIZACION
+        let incremento = 1;
+        let contador =0;
+        let inputContador = document.getElementById('contador');
+        const inputIncremento = document.getElementById('incremento');
+        let btnIncrementar = document.getElementById('incrementar');
+        let btnDecrementar = document.getElementById('decrementar');
+        let textoResultado = '';
+        inputContador.value = contador;
+        inputContador.style.fontSize = '40px';
+        inputContador.style.width = '100px';
+
+        console.log(`contador : ${contador}`);
+        console.log('contador : ' + contador );
+        function incrementar(){
+            // recoger los valores
+            // hacer las operaciones
+            contador = contador +incremento;
+            // mostrar el resultado
+             console.log(`contador : ${contador}`);
+             textoResultado = textoResultado + '+' + incremento;
+            document.getElementById('resultadoContador').innerHTML=textoResultado;
+            inputContador.value = contador;
+            btnIncrementar.innerHTML = `Incrementar (${contador})`;
+            btnDecrementar.innerHTML = `Decrementar (${contador})`;
+        }
+         function decrementar(){
+            // recoger los valores
+            // hacer las operaciones
+            contador = contador - incremento;
+            // mostrar el resultado
+             console.log(`contador : ${contador}`);
+             textoResultado = textoResultado + '-' + incremento;
+            document.getElementById('resultadoContador').innerHTML=textoResultado;
+            inputContador.value = contador;
+            btnDecrementar.innerHTML = `Decrementar (${contador})`;
+            btnIncrementar.innerHTML = `Incrementar (${contador})`;
+        }
+
+        function cambiarIncremento(){
+            incremento = parseInt(inputIncremento.value);
+        }
+
+  </script>
+</body>
+</html>
