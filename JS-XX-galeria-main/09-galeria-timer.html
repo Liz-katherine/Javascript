@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="parar" onclick="parar()">PARAR</button><br>
+
+    <img id="foto">
+    <script>
+        // inicializacion variables
+        var pos = 0;
+        var segundos = 1000; 
+        const galeria = ['hortensia.jpg', 'koala.jpg', 'paisaje.jpg', 'pinguinos.jpg','foto01.jpg'];
+        const galeriaTexto = ['hortensia Azul', 'koala Australiano', 'Paisaje', 'Pingüinos bailando','habitacion'];  
+
+        // fin inicializacion
+        document.getElementById("foto").src=`img/${galeria[0]}`;
+
+        miTimer = setInterval(cambiar, segundos);
+       
+
+        function cambiar (){
+            document.getElementById("foto").src=`img/${galeria[pos]}`;
+            console.log(pos);
+            pos++;
+            if (pos > galeria.length-1){pos=0;}
+        }
+
+        function parar(){
+            clearInterval(miTimer);
+        }
+        
+
+
+    </script>
+    
+</body>
+</html>

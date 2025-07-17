@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Operadores</title>
+
+<style type="text/css">
+#container {
+	background-color:antiquewhite;
+	padding: 20px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.rojo {
+	color: #F00;
+	font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+
+
+<h1>JavaScript evento onclick</h1>
+<h2>document.getElementById("id").src</h2>
+<p>En este caso JavaScript cambia atributo src de una imagen.</p>
+<div id="botonera"></div>
+<button onclick="cambiarFoto('img/foto01.jpg')">FOTO 01</button>
+
+<button onclick="cambiarFoto('img/foto02.jpg')">FOTO 02</button>
+
+<button onclick="cambiarFoto('img/foto03.jpg')">FOTO 03</button>
+
+<button onclick="cambiarFoto('img/foto04.jpg')">FOTO 04</button>
+
+<br><br>
+
+<img id="foto" src="img/foto01.jpg" width="100%" >
+
+
+
+</div>
+<script>
+    texto = "<h2>Botonera JS</h2><HR>";
+    numeroImagenes = 5;
+    for (let i = 1; i <= numeroImagenes; i++){
+        if (i<10) 
+        {
+            ti='0'+i;
+        } else {
+            ti=i;
+        }
+        texto += `<button onclick="cambiarFoto('img/foto${ti}.jpg')">FOTO ${ti}</button>`
+
+    }
+    
+    document.getElementById('botonera').innerHTML=texto;
+	
+    function cambiarFoto(imagen){
+		console.log('poner imagen ' + imagen + ' en foto');
+		document.getElementById('foto').src=imagen;
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Operadores</title>
+
+<style type="text/css">
+#container {
+	background-color:antiquewhite;
+	padding: 20px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.rojo {
+	color: #F00;
+	font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+
+
+<h1>JavaScript evento onclick</h1>
+<h2>document.getElementById("id").src</h2>
+<p>En este caso JavaScript cambia atributo src de una imagen.</p>
+
+<button onmouseover="cambiarFoto('01')">FOTO 01</button>
+
+<button onclick="cambiarFoto('02')">FOTO 02</button>
+
+<button onclick="cambiarFoto('03')">FOTO 03</button>
+
+<button onclick="cambiarFoto('04')">FOTO 04</button>
+
+<br><br>
+
+<img id="foto" src="img/foto01.jpg" width="100%" >
+
+
+
+</div>
+<script>
+	function cambiarFoto(nombre){        
+		//document.getElementById('foto').src='img/foto'+nombre+'.jpg';
+        document.getElementById('foto').src=`img/foto${nombre}.jpg`;
+        if (nombre == '03'){
+            document.getElementById('foto').style.border='4px solid red';
+        } else {
+            if (nombre == '04'){
+                document.getElementById('foto').style.border='6px solid blue';
+            }
+            else {
+                document.getElementById('foto').style.border='6px solid yellow';
+            }
+        }
+	}
+</script>
+</body>
+</html>

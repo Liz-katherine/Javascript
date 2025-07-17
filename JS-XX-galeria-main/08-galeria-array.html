@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Galeria</title>
+
+<style type="text/css">
+#container {
+	background-color:antiquewhite;
+	padding: 20px;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.rojo {
+	color: #F00;
+	font-size: 18px;
+}
+pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow-x: auto;
+}
+.botonera {
+    background-color: blueviolet;
+    color : white;
+    font-weight: bolder;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+
+
+<h1>Galeria</h1>
+<h2>array</h2>
+<p>Otra manera de manejar una galeria sin necesidad de saber el numero de items, es usar arrays. Definimos una variable con los nombres de las fotos que queremos colocar en la galeria y asi no debemos controlar el numero de elementos, ni preocuparnos por que los nombres de las fotos, sigan un patrón</p><p>
+    <pre>
+        <code>
+          const galeria = ['foto01.jpg', 'foto02.jpg', 'Imagen.png'];       </code>
+      </pre>
+</p>
+<p>Usamos el for para leer los elementos de la tabla</p>
+<div id="botonera"></div>
+
+
+<br><br>
+<div id="galeria">
+
+    <img id="foto" src="img/foto01.jpg" width="100%" >
+    <h3 id="fotoTitulo">Titulo</h3>
+
+</div>
+
+</div>
+<script>
+    // for que lee un array
+    let botones = '';
+    //const galeria = ['foto01.jpg', 'foto02.jpg', 'foto03.jpg', 'foto04.jpg'];
+    const galeria = ['hortensia.jpg', 'koala.jpg', 'paisaje.jpg', 'pinguinos.jpg'];
+    const galeriaTexto = ['hortensia Azul', 'koala Australiano', 'Paisaje', 'Pingüinos bailando'];
+    console.log(`📒secuencia de 1 a ${galeria.length}`)
+    for (let i = 0; i < galeria.length ; i++){
+        botones += `<button id="btn-${i}" onclick="cambiarFoto(${i})" class="botonera">${galeria[i]}</button>`
+
+    }
+    // cargamos primera foto de galeriA
+    document.getElementById("foto").src = `img/${galeria[0]}`;
+    document.getElementById("fotoTitulo").innerHTML = galeriaTexto[0];
+
+  
+
+
+  
+    document.getElementById('botonera').innerHTML=botones;
+
+    
+   
+	
+    function cambiarFoto(id){
+		console.log('poner imagen ' + id + ' en foto');
+		document.getElementById('foto').src=`img/${galeria[id]}`;
+        document.getElementById("fotoTitulo").innerHTML = galeriaTexto[id];
+        // para inicializar fondos
+        for (let i = 0; i <galeria.length; i++){
+            document.getElementById(`btn-${i}`).style.backgroundColor = 'blueviolet';
+        }
+        document.getElementById(`btn-${id}`).style.backgroundColor = 'green';
+	}
+</script>
+</body>
+</html>
