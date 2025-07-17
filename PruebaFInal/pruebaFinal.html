@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación</title>
+
+    <style>
+    *{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+    background-color: #f0f0f0;
+    /* text-align: center; */
+}
+#cabecera {
+      background: #0848d3;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 250px;
+      height: 300px;
+      margin: 40px auto;
+    }
+#slider {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    #deslizante { /* Coloca sombra atrás del texto de la imágen */
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 10px;
+      font-size: 1.5em;
+      text-align: center;
+    }
+    .botones {
+      margin-top: 20px;
+    }
+
+    .botones button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .botones button:hover {
+        background: greenyellow
+    }
+
+    .indicadores {
+      margin-top: 20px; /* margen de los indicadores */
+    }
+
+    .indicadores span { 
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin: 0 5px;
+      background: #eca7e7;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .indicadores .activo {
+      background: #3293e2;
+    }
+
+
+
+    </style>
+
+</head>
+<body>
+    <header id="cabecera">
+        <img src="imagenes/marca.jpg" width="100" title="Logotipo">
+        <h1 class="titcab">Visiones enimágticas</h1>
+
+
+    </header>
+
+    <div class="slider-container">
+        <img id="slider" src="" alt="imagen del slider">
+        <h2 id="deslizante"></h2>
+        </div>
+
+    <div class="controles">
+        <div class="botones">
+            <button onclick="siguiente()">Siguiente</button>
+            <button onclick="anterior()">Anterior</button>
+            <button onclick="pausar()">Pausar</button>
+            <button onclick="reanudar()">Reanudar</button>
+        </div>
+        <div class="indicadores" id="indicadores"></div>
+        </div>
+
+    <script>
+        const imagenes=['Tcn.jpg','universo.jpg','mujerindigena.png','Ind.jpg','Selvabaja.png','Pm.jpg']; /* imágenes del slider */
+        const texto=['Tucán','Universo','Shipiba','Sabio','Medicina natural','Puma']; /* Texto de las imágenes */
+
+        
+        let indiceActual = 0; /* Índice de la actual imágen */
+        
+        const sliderImage = document.getElementById('slider');
+        const sliderText = document.getElementById('deslizante');
+        const indicadoresContainer = document.getElementById('indicadores');
+        /* Botones: */
+        const btnAnterior = document.getElementById('btnAnterior');
+        const btnSiguiente = document.getElementById('btnSiguiente');
+        const btnPlay = document.getElementById('btnreanudar');
+        const btnPause = document.getElementById('btnpausar');
+
+
+
+
+        function mostrarImagen() {
+            sliderImage.style.opacity = 0; /* transición que inicia el desvanecimiento */
+
+            setTimeout(() => {
+                const imagenSrc = `imagenes/${imagenes[indiceActual]}`;
+                const textoActual = texto[indiceActual];
+                /* Actualiza el contenido del slider */
+                sliderImage.src = imagenSrc;
+                sliderImage.alt = textoActual; 
+                sliderText.textContent = textoActual;
+
+                sliderImage.style.opacity = 1; /* Al finalizar la presentación hace visible la nueva imágen */
+                
+                actualizarIndicadores();
+            }, 300); // Este tiempo debe coincidir con la transición en CSS
+        }
+        function iniciarAuto() { /* Imágenes pasan en automático */
+            intervalo = setInterval(siguiente, 300);
+        }
+
+        function siguiente() {
+            indiceActual = (indiceActual + 1) % imagenes.length; /* El índice comienza en cero al finalizar */
+            mostrarImagen();
+        }
+        function anterior() { /* Se mueve el slider a la siguiente imágen */
+            indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length; /* Va al final y retrocede */
+            mostrarImagen();
+        }
+
+        function pausar() {
+            clearInterval(intervalo);
+        }
+        
+        function reanudar(){
+            iniciarAuto();
+        }
+
+        function actualizarIndicadores() { /* Resalta los indicadores que se muestra en ese momento */
+            const dots = indicadoresContainer.children;
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('activo');
+            }
+            dots[indiceActual].classList.add('activo');
+        }
+        imagenes.forEach((_, index) => { /* Se ejecuta al cargar la pantalla */
+            const dot = document.createElement('span');
+            dot.addEventListener('click', () => {
+                indiceActual = index;
+                mostrarImagen();
+            });
+            indicadoresContainer.appendChild(dot);
+        });
+
+        /* Muestra la 1era imágen al iniciar pantalla */
+        mostrarImagen();
+
+    </script>
+</body>
+</html>
+
+
+
+      
