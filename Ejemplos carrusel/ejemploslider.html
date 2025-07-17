@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slider Interactivo</title>
+
+  <style>
+    /* FASE 2: DISEÑO CSS */
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+    }
+
+    #cabecera {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 800px;
+      height: 400px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    #slider {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    #deslizante {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 10px;
+      font-size: 1.5em;
+    }
+
+    .botones {
+      margin-top: 20px;
+    }
+
+    .botones button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .indicadores {
+      margin-top: 20px;
+    }
+
+    .indicadores span {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin: 0 5px;
+      background: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .activo {
+      background: #333;
+    }
+  </style>
+</head>
+
+<body onload="mostrarImagen()">
+  <header id="cabecera">
+    <img src="imagenes/marca.jpg" width="100" title="Logotipo" />
+    <h1 class="titcab">Visiones Enigmáticas</h1>
+  </header>
+
+  <!-- FASE 1: ESTRUCTURA HTML -->
+  <div class="slider-container">
+    <img id="slider" src="" alt="Slider"/>
+    <div id="deslizante"></div>
+  </div>
+
+  <div class="botones">
+    <button onclick="anterior()">Anterior</button>
+    <button onclick="siguiente()">Siguiente</button>
+    <button onclick="pausar()">Pausar</button>
+    <button onclick="reanudar()">Reanudar</button>
+  </div>
+
+  <div class="indicadores" id="indicadores"></div>
+
+  <script>
+    // FASE 3: LÓGICA JS
+
+    const imagenes = [
+      'Tcn.jpg',
+      'universo.jpg',
+      'mujerindigena.png',
+      'Ind.jpg',
+      'Selvabaja.png',
+      'Pm.jpg'
+    ];
+
+    const titulos = [
+      'Tucán',
+      'Universo',
+      'Shipiba',
+      'Sabio',
+      'Medicina natural',
+      'Puma'
+    ];
+
+    let indiceActual = 0;
+    let intervalo;
+
+    function mostrarImagen() {
+      const slider = document.getElementById('slider');
+      const deslizante = document.getElementById('deslizante');
+
+      slider.style.opacity = 0; // transición suave
+
+      setTimeout(() => {
+        slider.src = 'imagenes/' + imagenes[indiceActual];
+        deslizante.textContent = titulos[indiceActual];
+        slider.style.opacity = 1;
+        actualizarIndicadores();
+      }, 200);
+    }
+
+    function siguiente() {
+      indiceActual = (indiceActual + 1) % imagenes.length;
+      mostrarImagen();
+    }
+
+    function anterior() {
+      indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+      mostrarImagen();
+    }
+
+    // FASE 4: Auto reproducción y control
+    function iniciarAuto() {
+      intervalo = setInterval(siguiente, 3000);
+    }
+
+    function pausar() {
+      clearInterval(intervalo);
+    }
+
+    function reanudar() {
+      iniciarAuto();
+    }
+
+    // Indicadores
+    const contenedorIndicadores = document.getElementById('indicadores');
+
+    imagenes.forEach((_, index) => {
+      const punto = document.createElement('span');
+      punto.addEventListener('click', () => {
+        indiceActual = index;
+        mostrarImagen();
+      });
+      contenedorIndicadores.appendChild(punto);
+    });
+
+    function actualizarIndicadores() {
+      const puntos = document.querySelectorAll('.indicadores span');
+      puntos.forEach((p, i) => {
+        p.classList.toggle('activo', i === indiceActual);
+      });
+    }
+
+    iniciarAuto();
+  </script>
+</body>
+</html>

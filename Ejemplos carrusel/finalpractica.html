@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Funcional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #cabecera {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        .titcab {
+            margin-left: 20px;
+        }
+        /* Contenedor principal del slider */
+        .slider-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px; /* Ancho máximo para pantallas grandes */
+            height: 400px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            background: #000;
+        }
+        /* La imagen que cambia */
+        #slider {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin deformarse */
+            transition: opacity 0.4s ease-in-out; /* Transición suave */
+        }
+        /* El texto superpuesto */
+        #deslizante {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 15px;
+            font-size: 1.5em;
+            text-align: center;
+        }
+        /* Contenedor para botones e indicadores */
+        .controles {
+            margin-top: -20px; /* Sube los controles un poco */
+            margin-bottom: 40px;
+        }
+        .botones button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .botones button:hover {
+            background: #555;
+        }
+        .indicadores {
+            margin-top: 20px;
+        }
+        .indicadores span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        /* Estilo para el indicador de la imagen activa */
+        .indicadores .activo {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="cabecera">
+        <img src="imagenes/marca.jpg" width="100" title="Logotipo">
+        <h1 class="titcab">Visiones enigmáticas</h1>
+    </header>
+
+    <div class="slider-container">
+        <img id="slider" src="" alt="Imagen del slider">
+        <h2 id="deslizante"></h2>
+    </div>
+
+    <div class="controles">
+        <div class="botones">
+            <button onclick="anterior()">Anterior</button>
+            <button onclick="siguiente()">Siguiente</button>
+        </div>
+        <div class="indicadores" id="indicadores"></div>
+    </div>
+
+    <script>
+        // --- CONFIGURACIÓN ---
+        const imagenes = ['Tcn.jpg', 'universo.jpg', 'mujerindigena.png', 'Ind.jpg', 'Selvabaja.png', 'Pm.jpg'];
+        const texto = ['Tucán', 'Universo', 'Mujer Shipiba', 'Sabio de la comunidad', 'Medicina Natural', 'Puma'];
+
+        // --- VARIABLES GLOBALES ---
+        let indiceActual = 0;
+
+        // --- REFERENCIAS A ELEMENTOS DEL DOM (para no buscarlos a cada rato) ---
+        const sliderImage = document.getElementById('slider');
+        const sliderText = document.getElementById('deslizante');
+        const indicadoresContainer = document.getElementById('indicadores');
+
+        // --- FUNCIONES ---
+
+        /**
+         * Muestra la imagen y el texto actual, y actualiza los indicadores.
+         */
+        function mostrarImagen() {
+            // Inicia la transición de desvanecimiento
+            sliderImage.style.opacity = 0;
+
+            setTimeout(() => {
+                const imagenSrc = `imagenes/${imagenes[indiceActual]}`;
+                const textoActual = texto[indiceActual];
+
+                // Cambia el contenido
+                sliderImage.src = imagenSrc;
+                sliderImage.alt = textoActual; // Buena práctica para accesibilidad
+                sliderText.textContent = textoActual;
+
+                // Finaliza la transición haciendo visible la nueva imagen
+                sliderImage.style.opacity = 1;
+                
+                actualizarIndicadores();
+            }, 400); // Este tiempo debe coincidir con la transición en CSS
+        }
+
+        /**
+         * Mueve el slider a la siguiente imagen.
+         */
+        function siguiente() {
+            // El operador % (módulo) asegura que el índice vuelva a 0 al llegar al final
+            indiceActual = (indiceActual + 1) % imagenes.length;
+            mostrarImagen();
+        }
+
+        /**
+         * Mueve el slider a la imagen anterior.
+         */
+        function anterior() {
+            // El cálculo asegura que el índice vaya al final si estamos en 0 y retrocedemos
+            indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+            mostrarImagen();
+        }
+        
+        /**
+         * Actualiza los puntos indicadores para resaltar el que corresponde a la imagen actual.
+         */
+        function actualizarIndicadores() {
+            const dots = indicadoresContainer.children;
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('activo');
+            }
+            dots[indiceActual].classList.add('activo');
+        }
+
+        // --- INICIALIZACIÓN (Código que se ejecuta al cargar la página) ---
+        
+        // Creamos los puntos indicadores dinámicamente
+        imagenes.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.addEventListener('click', () => {
+                indiceActual = index;
+                mostrarImagen();
+            });
+            indicadoresContainer.appendChild(dot);
+        });
+
+        // Mostramos la primera imagen al cargar la página
+        mostrarImagen();
+
+    </script>
+</body>
+</html>

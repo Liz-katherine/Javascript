@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slider Simple</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 20px;
+background-color: #f5f5f5;
+}
+.slider-container {
+max-width: 800px;
+margin: 0 auto;
+background: white;
+border: 1px solid #ddd;
+border-radius: 8px;
+overflow: hidden;
+}
+.slider-content {
+position: relative;
+width: 100%;
+height: 400px;
+}
+.slider-image {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+</style>
+</head>
+<body>
+<div class="slider-container">
+<div class="slider-content">
+<img id="imagen" class="slider-image" src="" alt="Imagen">
+<div id="titulo" class="slider-title"></div>
+</div>
+<div class="slider-controls">
+<button class="btn" id="btnAnterior">Anterior</button>
+<button class="btn" id="btnSiguiente">Siguiente</button>
+</div>
+<div class="indicators" id="indicadores"></div>
+<div class="autoplay-controls">
+<button class="btn" id="btnPlay">Play</button>
+<button class="btn" id="btnPause">Pause</button>
+</div>
+</div>
+<script>
+        const imagenes = [
+            'https://picsum.photos/800/400?random=1',
+            'https://picsum.photos/80um.photos/800/400?random=2',
+            'https://picsum.photos/800/400?random=3',
+            'https://picsum.photos/800/400?random=4',
+            'https://picsum.photos/800/400?random=5'
+            ];
+        const titulos = [
+                'Paisaje Natural',
+                'Arquitectura Moderna',
+                'Vida Urbana',
+                'Naturaleza Salvaje',
+                'Arte Contemporáneo'
+                ];
+        let indiceActual = 0;
+        let autoplayInterval = null;
+        let autoplayActivo = false;
+            const imagen = document.getElementById('imagen');
+            const titulo = document.getElementById('titulo');
+            const btnAnterior = document.getElementById('btnAnterior');
+            const btnSiguiente = document.getElementById('btnSiguiente');
+            const btnPlay = document.getElementById('btnPlay');
+            const btnPause = document.getElementById('btnPause');
+            const indicadores = document.getElementById('indicadores');
+
+function mostrarImagen() {
+imagen.src = imagenes[indiceActual];
+titulo.textContent = titulos[indiceActual];
+actualizarIndicadores();
+}
+    function imagenAnterior() {
+    indiceActual = indiceActual - 1;
+    if (indiceActual < 0) {
+    indiceActual = imagenes.length - 1;
+}
+    mostrarImagen();
+    }
+    function imagenSiguiente() {
+    indiceActual = indiceActual + 1;
+    if (indiceActual >= imagenes.length) {
+    indiceActual = 0;
+}
+        mostrarImagen();
+    }
+    function irAImagen(indice) {
+    indiceActual = indice;
+    mostrarImagen();
+}
+    function crearIndicadores() {
+    indicadores.innerHTML = '';
+    for (let i = 0; i < imagenes.length; i++) {
+    const indicador = document.createElement('span');
+    indicador.className = 'indicator';
+    indicador.onclick = function() {
+    irAImagen(i);
+};
+    indicadores.appendChild(indicador);
+}
+}
+        function actualizarIndicadores() {
+        const todosIndicadores = indicadores.querySelectorAll('.indicator');
+        for (let i = 0; i < todosIndicadores.length; i++) {
+        if (i === indiceActual) {
+            todosIndicadores[i].classList.add('active');
+              } else {
+         todosIndicadores[i].classList.remove('active');
+        }
+        }
+        }
+        function iniciarAutoplay() {
+        if (!autoplayActivo) {
+             autoplayActivo = true;
+             autoplayInterval = setInterval(function() {
+             imagenSiguiente();
+              }, 3000);
+        }
+        }
+        function pausarAutoplay() {
+        if (autoplayActivo) {
+        autoplayActivo = false;
+        
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+        }
+        }
+        function inicializar() {
+        crearIndicadores();
+        mostrarImagen();
+
+       /*  btnAnterior.onclick = imagenAnterior;
+        btnSiguiente.onclick = imagenSiguiente;
+        btnPlay.onclick = iniciarAutoplay;
+        btnPause.onclick = pausarAutoplay; */
+        iniciarAutoplay();
+        }
+window.onload = inicializar;
+</script>
+</body>
+</html>
+
