@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+var contador = 0;
+var intervalId;
+
+function iniciarContador() {
+    intervalId = setInterval(function() {
+        contador++;
+        console.log("Contador: " + contador);
+    }, 1000);
+}
+
+function detenerContador() {
+    clearInterval(intervalId);
+    console.log("Contador detenido en: " + contador);
+}
+
+// Iniciar contador
+iniciarContador();
+
+// Detener después de 10 segundos
+setTimeout(detenerContador, 10000);
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

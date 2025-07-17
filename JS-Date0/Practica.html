@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slider Interactivo</title>
+  <style>
+    .slider {
+      position: relative;
+      width: 800px;
+      height: 400px;
+      margin: 50px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 1s ease;
+    }
+
+    .slider-title {
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      color: #fff;
+      font-size: 1.5rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 16px;
+      border-radius: 5px;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      font-size: 2rem;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .nav-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: 20px;
+    }
+
+    .indicators {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+
+    .indicator.active {
+      opacity: 1;
+      background: #ff0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider">
+    <img id="slider-image" src="" alt="Imagen Slider">
+    <div class="slider-title" id="slider-title"></div>
+
+    <!-- Sin eventListener: usar onclick directo -->
+    <button class="nav-btn prev" onclick="anterior()">&#10094;</button>
+    <button class="nav-btn next" onclick="siguiente()">&#10095;</button>
+
+    <div class="indicators" id="indicators"></div>
+  </div>
+
+  <script>
+    const imagenes = [ 
+      'https://picsum.photos/800/400?random=1',
+      'https://picsum.photos/800/400?random=2',
+      'https://picsum.photos/800/400?random=3',
+      'https://picsum.photos/800/400?random=4',
+      'https://picsum.photos/800/400?random=5'
+    ];
+
+    const titulos = [
+      'Paisaje Natural',
+      'Arquitectura Moderna',
+      'Vida Urbana',
+      'Naturaleza Salvaje',
+      'Arte Contemporáneo'
+    ];
+
+    let indiceActual = 0;
+    let autoPlay;
+
+    const sliderImage = document.getElementById('slider-image');
+    const sliderTitle = document.getElementById('slider-title');
+    const indicators = document.getElementById('indicators');
+
+    imagenes.forEach((img, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('indicator');
+      if (index === 0) dot.classList.add('active');
+      dot.setAttribute('onclick', `irAImagen(${index})`);
+      indicators.appendChild(dot);
+    });
+
+    function mostrarImagen() {
+      sliderImage.style.opacity = 0;
+      setTimeout(() => {
+        sliderImage.src = imagenes[indiceActual];
+        sliderTitle.textContent = titulos[indiceActual];
+        sliderImage.style.opacity = 1;
+        actualizarIndicadores();
+      }, 200);
+    }
+
+    function actualizarIndicadores() {
+      const dots = document.querySelectorAll('.indicator');
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[indiceActual].classList.add('active');
+    }
+
+    function siguiente() {
+      indiceActual = (indiceActual + 1) % imagenes.length;
+      mostrarImagen();
+      reiniciarAutoPlay();
+    }
+
+    function anterior() {
+      indiceActual = (indiceActual - 1 + imagenes.length) % imagenes.length;
+      mostrarImagen();
+      reiniciarAutoPlay();
+    }
+
+    function irAImagen(index) {
+      indiceActual = index;
+      mostrarImagen();
+      reiniciarAutoPlay();
+    }
+
+    function iniciarAutoPlay() {
+      autoPlay = setInterval(siguiente, 3000);
+    }
+
+    function detenerAutoPlay() {
+      clearInterval(autoPlay);
+    }
+
+    function reiniciarAutoPlay() {
+      detenerAutoPlay();
+      iniciarAutoPlay();
+    }
+
+    mostrarImagen();
+    iniciarAutoPlay();
+  </script>
+
+</body>
+</html>
+

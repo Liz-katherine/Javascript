@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Reloj en Consola</title>
+
+</head>
+<body>
+    <script>
+        function mostrarCero(x) {
+            return Number(x) < 10 ? '0' + x : x;
+        }
+
+        
+
+
+
+        function mostrarHora() {
+    var ahora = new Date();
+    var horas = ahora.getHours();
+    var minutos = ahora.getMinutes();
+    var segundos = ahora.getSeconds();
+    
+    var tiempo = horas + ":" + minutos + ":" + segundos;
+    var tiempo = mostrarCero(horas) + ":" + mostrarCero(minutos) + ":" + mostrarCero(segundos);
+    console.log("Hora actual: " + tiempo);
+}
+
+// Mostrar la hora cada segundo
+setInterval(mostrarHora, 1000);
+
+    </script>
+</body>
+</html>

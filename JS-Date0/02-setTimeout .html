@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    // Ejecutar después de 2 segundos
+setTimeout(function() {
+    console.log("¡Hola después de 2 segundos!");
+}, 2000);
+
+// Con función nombrada
+function saludo() {
+    console.log("¡Hola mundo!");
+}
+setTimeout(saludo, 1000);
+
+
+
+
+
+var estado = 0; // 0=rojo, 1=amarillo, 2=verde
+var colores = ["ROJO", "AMARILLO", "VERDE"];
+
+function cambiarSemaforo() {
+    console.log("Semáforo: " + colores[estado]);
+    estado = (estado + 1) % 3;
+}
+
+// Cambiar cada 2 segundos
+setInterval(cambiarSemaforo, 2000);
+
+
+</script>
+    
+</body>
+</html>

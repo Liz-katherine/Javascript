@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba colores</title>
+</head>
+<body>
+    <div id="miDiv">¡Hola! Mi color cambiará cada 3 segundos.</div>
+    <div id="mensaje"></div>
+
+    <script>
+        // Cambiar color de un elemento cada 3 segundos 
+        function cambiarColor() {
+            var elemento = document.getElementById("miDiv");
+            var colores = ["red", "blue", "green", "orange"];
+            var colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+            elemento.style.color = colorAleatorio;
+        }
+
+        setInterval(cambiarColor, 3000);
+
+        // Mostrar mensaje después de 5 segundos
+        setTimeout(function() {
+            document.getElementById("mensaje").innerHTML = "¡Aparecí después de 5 segundos!";
+        }, 5000);
+    </script>
+</body>
+</html>

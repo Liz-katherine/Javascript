@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reloj</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Mystery+Quest&family=Rum+Raisin&display=swap" rel="stylesheet">
+</head>
+
+ <style>
+
+body {
+  padding: 40px;
+  font-family: "Fascinate Inline", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: green;
+  background-color: rgb(182, 219, 224);
+  border-radius: 15px;
+  
+}
+
+
+  </style>
+<body>
+
+  <h1>Mi reloj</h1>
+  <div id="reloj" class="fuente"></div>
+
+
+
+  <script>
+    function mostrarCero(x) {
+      return Number(x) < 10 ? '0' + x : x;
+    }
+
+    function mostrarHora() {
+      var ahora = new Date();
+      var horas = mostrarCero(ahora.getHours());
+      var minutos = mostrarCero(ahora.getMinutes());
+      var segundos = mostrarCero(ahora.getSeconds());
+
+      var tiempo = horas + ":" + minutos + ":" + segundos;
+
+      document.getElementById("reloj").innerHTML = tiempo;
+    }
+
+    setInterval(mostrarHora, 1000);
+    mostrarHora(); // para mostrarlo al cargar sin esperar 1 seg.
+  </script>
+</body>
+</html>
