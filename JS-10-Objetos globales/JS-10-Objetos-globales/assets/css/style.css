@@ -1,0 +1,96 @@
+body {
+    background: #4b6cb7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #182848, #4b6cb7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1, p, a {
+    font-family: 'Carrois Gothic SC', sans-serif;
+    display: block;
+    text-align: center;
+    line-height:.8;
+    color: white;
+}
+.contenido {
+    max-width: 1200px;
+   /*  margin: 5rem auto 0 auto; */
+    color: white;
+    font-size: 3rem;
+    font-family: 'Carrois Gothic SC', sans-serif;
+}
+h1 {
+    font-size: 4rem;
+}
+a {
+    font-size: 1.4rem;
+}
+p {
+    font-size: 2.2rem;
+}
+
+.hashtag {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#texto {
+    background-color: white;
+    color :#182848;
+    margin: 0px;
+    
+}
+
+#texto p {
+    text-align: left;
+    color :#182848;
+    font-size: 1,4rem;
+    padding: 10px 5px;
+}
+
+#curso, #leccion {
+    background-color: white;
+    color :#182848;
+    border-radius: 10px;
+    padding: 5px 5px;
+    text-align: left;
+}
+
+#curso  p {
+    color:#182848;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+#leccion  p {
+    color:#182848;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+.destacado {
+    border : 5px solid red;
+}
+/* clases para todos los elementos donde mostramos informacion, debe cntrastar con el fondo general */
+.bloque {
+    background-color: white;
+    color :#182848;
+    border-radius: 10px;
+    padding: 5px 5px;
+    text-align: left;
+    margin-top:5px;
+}
+
+.bloque  p {
+    color:#182848;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+.bloque ul li {
+    text-align: left;
+
+}
+
+
+

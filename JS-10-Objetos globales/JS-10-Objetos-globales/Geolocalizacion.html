@@ -1,0 +1,37 @@
+  <script>
+    const lenguajeBasico = navigator.language.substring(0, 2);
+    let url = location.href;
+
+switch (lenguajeBasico) {
+    case 'eu':
+       $saludo= 'Egun on';
+        location.href='http://www.euskadi.eus/';
+       
+        break;
+    case 'pt':
+        $saludo = 'Bom dia';
+        location.href = 'https://farmrio.eu/';
+        break;
+    case 'es':
+       $saludo = 'Buenos días';
+        location.href = 'https://es.wikipedia.org/wiki/Francia';
+        break;
+    case 'en':
+       $saludo = 'Good morning';
+        location.href = 'https://es.wikipedia.org/wiki/Reino_Unido';
+        break;
+    default:
+        $saludo = 'Bonjour';
+        location.href = 'https://www.france.fr/es/destino/#null-1';
+        break;
+}
+alert($saludo);
+
+</script>
+
+
+
+
+
+</body>
+</html>
