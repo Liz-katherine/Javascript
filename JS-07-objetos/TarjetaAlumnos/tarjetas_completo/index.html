@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso IFCD0110 Tarjetas</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h1 id="titulo" style="text-align: center; margin-top: 30px;"></h1>
+    <div id="contenedorTarjetas" class="container__cards"></div>
+
+<script>
+const cursoJSON = {
+  "curso": "IFCD0110_202505",
+  "fecha inicio": "2025-05-15",
+  "fecha fin": "2025-09-26",
+  "lugar": "Donosti",
+  "empresa": "CEBANC",
+  "url_drive": "https://docs.google.com/presentation/d/1APMiTbTaZDGt2DyPXf5gcJxv--SWPONJ0nOrvrpPv4o/edit?usp=drive_link",
+  "tutores": [
+    {
+      "Nombre": "Alberto Mozo",
+      "email": "albertomozodocente@gmail.com",
+      "linked": "https://www.linkedin.com/in/alberto-mozo-avellaned-80615713/",
+      "github": "albertomozo",
+      "url": "https://pretty-streetcar-ee4.notion.site/99fe4ba7a31745ac9c762c250ed5c003"
+    }
+  ],
+  "alumnos": [
+    {
+      "Nombre": "Monica",
+      "email": "moniqueaghedo2001@gmail.com",
+      "linked": "https://www.linkedin.com/",
+      "github": "moniqueaghedo",
+      "url": "https://curriculumvitae01.netlify.app/",
+      "inicio": {"html": 1, "css": 1, "JS": 1},
+      "fin": {"html": 0, "css": 0, "JS": 0}
+    },
+    {
+      "Nombre": "Liz Cebrecos",
+      "email": "liz.k.cebrecos@gmail.com",
+      "linked": "http://Linkedin.com/in/lizcebrecos",
+      "github": "Liz-katherine",
+      "url": "https://cvindex.netlify.app/",
+      "inicio": {"html": 0, "css": 0, "JS": 0},
+      "fin": {"html": 2, "css": 1, "JS": 0}
+    }
+    // Puedes añadir el resto de alumnos aquí si lo deseas
+  ]
+};
+
+document.getElementById("titulo").textContent = cursoJSON.curso;
+
+const contenedor = document.getElementById("contenedorTarjetas");
+let cardIndex = 0;
+
+// Función genérica para crear una tarjeta tipo .card
+function crearCard(titulo, cuerpoHTML, imagenIndex) {
+  return `
+    <div class="card">
+      <div class="cover">
+        <img src="images/p${(imagenIndex % 5) + 1}.png" alt="">
+        <div class="img__back"></div>
+      </div>
+      <div class="description">
+        <h2>${titulo}</h2>
+        ${cuerpoHTML}
+      </div>
+    </div>
+  `;
+}
+
+// Curso
+let cursoHTML = `
+  <p><strong>Fecha Inicio:</strong> ${cursoJSON["fecha inicio"]}</p>
+  <p><strong>Fecha Fin:</strong> ${cursoJSON["fecha fin"]}</p>
+  <p><strong>Lugar:</strong> ${cursoJSON.lugar}</p>
+  <p><strong>Empresa:</strong> ${cursoJSON.empresa}</p>
+  <p><a href="${cursoJSON.url_drive}" target="_blank">Documentación</a></p>
+`;
+contenedor.innerHTML += crearCard("Curso", cursoHTML, cardIndex++);
+
+// Tutores
+cursoJSON.tutores.forEach(tutor => {
+  let tutorHTML = `
+    <p><strong>Email:</strong> ${tutor.email}</p>
+    <p><a href="${tutor.linked}" target="_blank">LinkedIn</a></p>
+    <p><a href="https://github.com/${tutor.github}" target="_blank">GitHub</a></p>
+    <p><a href="${tutor.url}" target="_blank">Más info</a></p>
+  `;
+  contenedor.innerHTML += crearCard(tutor.Nombre, tutorHTML, cardIndex++);
+});
+
+// Alumnos
+cursoJSON.alumnos.forEach(alumno => {
+  let alumnoHTML = `
+    <p><strong>Email:</strong> ${alumno.email}</p>
+    <p><a href="${alumno.linked}" target="_blank">LinkedIn</a></p>
+    <p><a href="https://github.com/${alumno.github}" target="_blank">GitHub</a></p>
+    <p><a href="${alumno.url}" target="_blank">CV</a></p>
+    <div class="skills">
+      <p><strong>Inicio:</strong> HTML: ${alumno.inicio.html}, CSS: ${alumno.inicio.css}, JS: ${alumno.inicio.JS}</p>
+      <p><strong>Fin:</strong> HTML: ${alumno.fin.html}, CSS: ${alumno.fin.css}, JS: ${alumno.fin.JS}</p>
+    </div>
+  `;
+  contenedor.innerHTML += crearCard(alumno.Nombre, alumnoHTML, cardIndex++);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+    <style>
+        #curso {
+            background-color: aqua;
+        }
+        .bloqueAlumnos li 
+        {
+            margin : 10px 5px;
+        }
+        .materias td {
+            border: 1px solid black;
+        } 
+         .materias th {
+            border: 1px solid white;
+            color : white;
+            background : black;
+        } 
+        .materias tr:nth-child(odd) {
+           
+            background : rgb(192, 228, 234);
+        }
+        .materias tr:nth-child(even) {
+           
+            background : rgb(216, 240, 171);
+        }
+      
+
+
+    </style>
+</head>
+<body>
+    
+    <h1 id="titulo"></h1>
+    <div id="curso">
+    </div>
+    <div id="tutor"></div>
+    <div id="alumnos"></div>
+    <script>
+        const cursoJSON = {"curso":"IFCD0110_202505",
+"fecha inicio" : "2025-05-15",
+"fecha fin" : "2025-09-26",
+"lugar" : "Donosti",
+"empresa" : "CEBANC",
+"url_drive" : "https://docs.google.com/presentation/d/1APMiTbTaZDGt2DyPXf5gcJxv--SWPONJ0nOrvrpPv4o/edit?usp=drive_link",
+"tutores": [
+    {   "Nombre":"Alberto Mozo",
+        "email" : "albertomozodocente@gmail.com",
+        "linked" : "https://www.linkedin.com/in/alberto-mozo-avellaned-80615713/",
+        "github" : "albertomozo",
+        "url" : "https://pretty-streetcar-ee4.notion.site/99fe4ba7a31745ac9c762c250ed5c003"
+       
+    
+    }
+],
+"alumnos" : [
+    {
+        "Nombre":"Monica",
+        "email" : "moniqueaghedo2001@gmail.com",
+        "linked" : "https://www.linkedin.com/",
+        "github" : "moniqueaghedo",
+        "url" : "https://curriculumvitae01.netlify.app/",
+        "inicio" : {
+            "html" : 1,
+            "css" : 1,
+            "JS" : 1
+        },
+        "fin" : {
+            "html" :0 ,
+            "css" : 0,
+            "JS" :0 
+        }
+    },
+    {
+        "Nombre":"Liz Cebrecos",
+        "email" : "liz.k.cebrecos@gmail.com",
+        "linked" : "http://Linkedin.com/in/lizcebrecos",
+        "github" : "Liz-katherine",
+        "url" : "https://cvindex.netlify.app/",
+        "inicio" : {
+            "html" : 0,
+            "css" : 0,
+            "JS" : 0
+        },
+        "fin" : {
+            "html" : 2,
+            "css" : 1,
+            "JS" : 0
+        }
+    },
+    
+    {
+        "Nombre":"Maryury Alexandra Caballero Montes",
+        "email" : "m.alexandra1118@gmail.com",
+        "linked" : "https://www.linkedin.com/in/maryuryalexandracaballeromontes?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "github" : "Maryu1118",
+        "url" : "https://cvmaryurycaballero.netlify.app/",
+        "inicio" : {
+            "html" : 0,
+            "css" : 0,
+            "JS" : 0
+        },
+            "fin" : {
+            "html" : 4,
+            "css" : 4,
+            "JS" : 4
+        }
+    },
+    {
+
+    
+        "Nombre":"Jimena Andrea Flores Garro",
+        "email" : "jfgarro13@gmail.com",
+        "linked" : "https://www.linkedin.com/in/jimena-andrea-flores-garro-76b78a1b2/",
+        "github" : "Jimena2002-flow",
+        "url" : "https://cv-jfgarro.netlify.app/",
+        "inicio" :{
+            "html" : 0,
+            "css" : 0,
+            "JS" : 0
+        },
+        "fin" : {
+            "html" : 4,
+            "css" : 4,
+            "JS" : 4
+        }
+    },
+    {
+            "Nombre":"Josymar Pateti",
+            "email" : "jsrph9@gmail.com",
+            "linked" : "https://www.linkedin.com/in/josymar-pateti-12a2a1366/",
+            "github" : "jsr707",
+            "url" : "https://curriculumjoss.netlify.app/",
+            "inicio" : {
+                "html" : 4,
+                "css" : 2,
+                "JS" : 0
+            },
+            "fin" : {
+                "html" : 4,
+                "css" : 4,
+                "JS" : 4
+            }
+    },
+    {
+            "Nombre":"jimmy ortega",
+            "email" : "ortegajimmy275@gmail.com",
+            "linked" : "https://www.linkedin.com/in/jimmy-ortega-b8870634b/",
+            "github" : "Jim-909",
+            "url" : "https://cv-jimmy.netlify.app",
+            "inicio" : {
+                "html" : 0,
+                "css" : 0,
+                "JS" : 0
+            },
+            "fin" : {
+                "html" : 0,
+                "css" : 0,
+                "JS" : 0
+            }                    
+        
+    },
+    {
+        "Nombre":"Rocio Gomez",
+        "email" : "iveth5899@gmail.com",
+        "linked" : "https://www.linkedin.com/",
+        "github" : "rocio178",
+        "url" : "https://curriculumchio.netlify.app/",
+        "inicio" : {
+        "html" : 0,
+        "css" : 0,
+        "JS" : 0
+        },
+        "fin" : {
+        "html" : 4,
+        "css" : 4,
+        "JS" : 4
+        }
+    },
+    {
+            "Nombre":"Marcio Martins Barros",
+            "email" : "marciomunguluni@gmail.com",
+            "linked" : "",
+            "github" : "Marciomunguluni",
+            "url" : "https://cv-marcio.netlify.app/",
+            "inicio" : {    
+                "html" : 0,
+                "css" : 0,
+                "JS" : 0           
+            },
+            "fin" : {    
+                "html" : 3,
+                "css" : 3,
+                "JS" : 2
+             }
+    },
+    {
+            "Nombre":"Cesar Hamilton Bravo Naranjo",
+            "email" : "cesarhbn1@hotmail.com",
+            "linked" : "https://www.linkedin.com/in/cesar-hamilton-bravo-naranjo",
+            "github" : "cesarbravoz",
+            "url" : "https://cesarbravoz.github.io/",
+            "inicio" : {    
+                "html" : 3,
+                "css" : 3,
+                "JS" : 3            
+            },
+            "fin" : {    
+                "html" : 5,
+                "css" : 5,
+                "JS" : 5
+             }
+        },
+        {
+            "Nombre":"franco pizarro",
+            "email" : "fp9325467@gmail.com",
+            "linked" : "",
+            "github" : "franco-pizarro",
+            "url" : "https://cvcssfp.netlify.app/",
+            "inicio" : {    
+                "html" : 1,
+                "css" : 1,
+                "JS" : 1            
+            },
+            "fin" : {    
+                "html" : 4,
+                "css" : 4,
+                "JS" : 4
+             }
+        }
+    ]
+};
+
+    console.log(`🟩 cursoJSON ${cursoJSON}`);
+
+    console.log(cursoJSON.alumnos[2])
+    
+    function pintarCurso() {
+        document.getElementById('titulo').innerHTML = cursoJSON.curso;
+        curso = document.getElementById('curso');
+        textoCurso = `<ul class="bloqueCurso">
+            <li><strong>Fecha Inicio</strong> : ${cursoJSON["fecha inicio"]}</li>
+            <li><strong>Fecha Fin</strong> : ${cursoJSON["fecha fin"]}</li>
+            <li><strong>Lugar </strong> : ${cursoJSON.lugar}</li>
+            <li><strong>Empresa</strong> : ${cursoJSON["empresa"]}</li>
+            <li><strong>url inicio</strong> : <a href="${cursoJSON["url_drive"]}target="_blank">documentación</a></li>
+            </ul>`;
+        curso.innerHTML=textoCurso;
+    }   
+
+    function pintarTutores() {
+        let tutor=document.getElementById('tutor');
+        console.log(`🅿️ ${cursoJSON.tutores}`)
+        let textoTutor = `<h2>Tutores</h2>
+        <ul class="bloqueTutor">`;
+        for (let clave in cursoJSON.tutores){
+            textoTutor += pintarPersona(cursoJSON.tutores[clave]);
+             textoTutor += `</ul>`;
+            textoTutor += '<hr>';
+        }
+          textoTutor += `</ul>`;      
+        
+       
+        tutor.innerHTML=textoTutor;
+
+
+
+
+    }
+
+    function pintarAlumnos(){
+        alumnos = document.getElementById('alumnos');
+        alumnosTabla = cursoJSON.alumnos;
+        console.log(`😊 ${cursoJSON.alumnos}`);
+        let textoAlumnos = '<h2>Alumnos</h2><ul class="bloqueAlumnos">'; 
+        console.log(alumnosTabla);
+        for (let clave in alumnosTabla){
+            console.log(` ${clave} : ${alumnosTabla[clave].Nombre }`)/* 
+            textoAlumnos += `<ul id="${clave}">`; */
+            textoAlumnos += pintarPersona(alumnosTabla[clave]);
+             textoAlumnos += `</ul>`;
+            textoAlumnos += pintarConocimientos(alumnosTabla[clave])
+            
+            textoAlumnos += '<hr>';
+        }
+        textoAlumnos += '</ul>';
+        alumnos.innerHTML = textoAlumnos;
+
+    }
+
+    function pintarPersona(persona) {
+        let resultado = '';
+        resultado += `<li><strong>Nombre</strong> : ${persona["Nombre"]}</li>`;
+        resultado += `<li><strong>Mail</strong> : ${persona.email}</li>`;
+        resultado += `<li><strong>Linkedin</strong> : <a href="${persona.linked}" target="_blank">linkedin</a></li>`;
+        resultado += `<li><strong>Github</strong> : <a href="https://github.com/${persona.github}" target="_blank">${persona.github}</a></li>`;
+        resultado += `<li><strong>url</strong> : <a href="${persona.url}" target="_blank">${persona.url}</a></li>`;
+        return resultado;
+    }
+
+    function pintarConocimientos(persona){
+          let resultado = '<table class="materias">';
+          resultado += '<tr><th>Materia</th><th>Inicio</th><th>Fin</th></tr>';  
+          for (let materia in persona.inicio) {
+            console.log(` ${materia} : ${persona.inicio[materia]} | ${persona.fin[materia]}`);
+            resultado +=`<tr><td>${materia}</td><td>${persona.inicio[materia]}</td><td>${persona.fin[materia]}</td></tr>`;
+
+          }
+          resultado += '</table>';
+          return resultado;
+
+
+
+
+    }
+            
+
+    pintarCurso();
+    pintarTutores();
+    pintarAlumnos();
+
+    /* Tanto los alumnos como el tutor son personas, por lo tanto para pintar los elementos comnunes uso una nueva funcion llamada pintarPersona(), qu ese invoco una vexz por el tutor y tantas veces como alumnos tenga.*/
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "curso": "IFCD0110_202505",
+  "fecha inicio": "2025-05-15",
+  "fecha fin": "2025-09-26",
+  "lugar": "Donosti",
+  "empresa": "CEBANC",
+  "url_drive": "https://docs.google.com/presentation/d/1APMiTbTaZDGt2DyPXf5gcJxv--SWPONJ0nOrvrpPv4o/edit?usp=drive_link",
+  "tutor": {
+    "Nombre": "Alberto Mozo",
+    "email": "albertomozodocente@gmail.com",
+    "linked": "https://www.linkedin.com/in/alberto-mozo-avellaned-80615713/",
+    "github": "albertomozo"
+  },
+  "alumnos": [
+    {
+      "Nombre": "Monica",
+      "email": "moniqueaghedo2001@gmail.com",
+      "linked": "https://www.linkedin.com/",
+      "github": "moniqueaghedo",
+      "url": "https://curriculumvitae01.netlify.app/",
+      "inicio": {"html": 1,"css": 1,"JS": 1},
+      "fin": {"html": 4,"css": 4,"JS": 4}
+    },
+    {
+      "Nombre": "Liz Cebrecos",
+      "email": "liz.k.cebrecos@gmail.com",
+      "linked": "http://Linkedin.com/in/lizcebrecos",
+      "github": "Liz-katherine",
+      "url": "https://cvindex.netlify.app/",
+      "inicio": {"html": 0,"css": 0,"JS": 0},
+      "fin": {"html": 2,"css": 1,"JS": 0}
+    }
+  ]
+}
