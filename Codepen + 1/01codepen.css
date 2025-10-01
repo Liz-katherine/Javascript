@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: royalblue;
+  color: #fff;
+  transition: box-shadow 0.3s, position 0.3s;
+  
+
+  /*
+  cuando tag-header tiene esta clase añade position. fixed
+  que junto a sus propiedades top, left, right y z-index
+  fijan el header en la parte superior
+  */
+  &.js_header_scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .container_name {
+    /*
+    definimos flexbox y sus propeidades justify-content y 
+    align-items que junto a height me permiten centrar de
+    manera vertical y horizontal los elemento que este
+    contiene
+    */
+    .flexbox_name {
+      display: flex;
+      justify-content: space-around;
+      height: 80px;
+      align-items: center;
+
+      nav {
+        ul {
+          display: flex;
+
+          li {
+            list-style: none;
+            margin-left: 14px;
+
+            a {
+              text-decoration: none;
+              color: #fff;
+
+              /*
+              cuando tag-a tiene esta clase añade un background-color
+              y un color al elemento creando con esto el efecto active
+              */
+              &.js_link_active {
+                background-color: #fff;
+                color: royalblue;
+                font-size: 18px;
+                padding: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    align-items: center;
+    color: #333;
+    font-size: 25px;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  background-color: rgb(85, 145, 236);
+  color: #fff;
+}
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: none; /* Oculto por defecto */
+  background-color: #b8e612;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #555;
+}
+.carousel-inner {
+    width: 50%;
+
+}
