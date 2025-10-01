@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina un Numero</title>
+    <style>
+        .inputAdivina{
+            width: 200px;
+        }
+        .intentos {
+            width: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adivinar</h1>
+
+    <input type="text" id="num" class="inputAdivina" placeholder="Adivina el número entre 1 y 100">
+    <button id="adivinar" onclick="Adivinar()">Adivinar</button>
+    <button id="recargar" onclick="location.reload()" style="display:none">Recargar Página</button><br>
+    Máximo de intentos <input type="text" id="intentosMax" readonly class="intentos"> Intentos Restantes<input type="text" id="intentosResto" value="0" readonly class="intentos"> 
+    <div id="resultado">
+        <!-- contenedor donde colocamos los resultados -->
+    </div>
+
+    <script> 
+    // INICIALIZACION
+        const azar = Math.floor(Math.random() * 100) + 1; // Número  aleatorio entre 1 y 100
+        const intentosMax = 6;
+        document.getElementById('intentosMax').value=intentosMax;
+        let intentos = 0; // Contador de intentos
+        console.log(` azar: ${azar}`);
+        let resultado = ''; // texto acucumulado de los intentos
+        function Adivinar() {
+            console.log(`intentos : ${intentos}`)
+            const num = parseInt(document.getElementById('num').value); // Obtener el número introducido por el usuario
+             // Incrementar el contador de intentos
+            const result = document.getElementById('resultado'); // div donde voy a meter el rersultado
+             intentos++;
+            // validar el numero de intentos
+            if (intentos > intentosMax){
+                result.innerHTML = `Has pasado el numero maximo de intentos ${intentosMax}. Reinicia el juego`;
+                document.getElementById('adivinar').style.display='none';
+                document.getElementById('recargar').style.display='block';
+                document.getElementById('num').style.display='none';
+
+                return;
+            }
+            
+            // validar el valor de entrada
+            if (num < 1 || num > 100 || isNaN(num)) {
+                result.innerHTML = 'Por favor, introduce un número válido entre 1 y 100.';
+                return;
+            }
+          
+
+
+            if (num === azar) {
+                resultado  = resultado + `¡Felicidades! Has adivinado el número ${azar} en ${intentos} intentos.<br>`;
+                result.style.backgroundColor = 'green';
+                result.style.fontSize="40px";
+            } else if (num < azar) {
+                resultado += `El número  es mayor que ${num}. Inténtalo de nuevo. <br>`;
+                document.getElementById('num').value='';
+                document.getElementById('num').focus();
+            } else {
+                resultado += `El número   es menor que ${num}. Inténtalo de nuevo.`;
+                document.getElementById('num').value='';
+                document.getElementById('num').focus();
+            }
+            result.innerHTML = resultado;
+        }
+        
+    
+</script>
+</body>
+</html>
+```

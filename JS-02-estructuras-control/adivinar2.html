@@ -1,0 +1,30 @@
+ <script> 
+        const azar = Math.floor(Math.random() * 100) + 1; // Número  aleatorio entre 1 y 100
+        let intentos = 0; // Contador de intentos
+        console.log(` azar: ${azar}`);
+        
+        function Adivinar() {
+            console.log(`intentos : ${intentos}`)
+            const num = parseInt(document.getElementById('num').value); // Obtener el número introducido por el usuario
+             // Incrementar el contador de intentos
+            const result = document.getElementById('resultado'); // div donde voy a meter el rersultado
+            
+            if (num < 1 || num > 100 || isNaN(num)) {
+                result.innerHTML = 'Por favor, introduce un número válido entre 1 y 100.';
+                return;
+            }
+            intentos++;
+            if (num === azar) {
+                result.innerHTML = `¡Felicidades! Has adivinado el número ${azar} en ${intentos} intentos.`;
+                result.style.backgroundColor = 'green';
+                result.style.fontSize="40px";
+            } else if (num < azar) {
+                result.innerHTML = `El número  es mayor que ${num}. Inténtalo de nuevo.`;
+                document.getElementById('num').value='';
+                document.getElementById('num').focus();
+            } else {
+                result.innerHTML = `El número   es menor que ${num}. Inténtalo de nuevo.`;
+                document.getElementById('num').value='';
+                document.getElementById('num').focus();
+            }
+        }

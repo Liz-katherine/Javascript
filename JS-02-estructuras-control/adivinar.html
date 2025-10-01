@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina un Numero</title>
+</head>
+<body>
+    <h1>Adivinar</h1>
+
+    <input type="text" id="num" placeholder="Adivina el número entre 1 y 100">
+    <button id="adivinar" onclick="Adivinar()">Adivinar</button>
+    <div id="resultado">
+        <!-- contenedor donde colocamos los resultados -->
+    </div>
+
+    <script> 
+        const azar = Math.floor(Math.random() * 100) + 1; // Número  aleatorio entre 1 y 100
+        let intentos = 0; // Contador de intentos
+        
+        function Adivinar() {
+            const num = parseInt(document.getElementById('num').value); // Obtener el número introducido por el usuario
+            intentos++; // Incrementar el contador de intentos
+
+            if (num < 1 || num > 100 || isNaN(num)) {
+                document.getElementById('resultado').innerHTML = 'Por favor, introduce un número válido entre 1 y 100.';
+                return;
+            }
+
+            if (num === azar) {
+                document.getElementById('resultado').innerHTML = `¡Felicidades! Has adivinado el número ${azar} en ${intentos} intentos.`;
+            } else if (num < azar) {
+                document.getElementById('resultado').innerHTML = 'El número es mayor. Inténtalo de nuevo.';
+            } else {
+                document.getElementById('resultado').innerHTML = 'El número es menor. Inténtalo de nuevo.';
+            }
+        }
+        
+    
+</script>
+</body>
+</html>

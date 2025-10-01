@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Calcular el factorial de un número introducido por el usuario
+        num = prompt('Introduce un número');
+        factorial = num; // Inicializar factorial con el valor de num
+        texto = `<strong>${num}! = </strong>${num} * ` ;
+         // Inicializar texto con el primer valor
+        document.write(texto  +   ' | factorial = '+factorial+ '<br>');
+        for (i = num - 1; i >= 1; i--) {
+            texto = texto + `${i} * `;
+           
+            factorial = factorial * i; 
+            document.write(texto  + ' | factorial = '+factorial+ '<br>');
+        }
+    
+        document.write( texto + ' = ' + factorial);
+
+     
+   
+    </script>
+</body>
+</html>
+
+
+     Definir i Como Entero;
+    Definir num Como Entero; // factorial num! = num * (num-1)* ...*1
+	Definir factorial Como Entero;
+    Escribir 'Vamos a mostrar el factorial del numero que introduzcas ';
+    Escribir 'Introduce numero';
+    Leer num;
+	factorial = num;
+	Para i=num-1 Hasta  1 Con Paso -1 Hacer
+		Escribir i , '*';
+		factorial = factorial *i;
+    FinPara
+	Escribir 'Factorial :' , factorial;
+FinAlgoritmo
+
