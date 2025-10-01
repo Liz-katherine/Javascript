@@ -1,0 +1,193 @@
+{"curso":"IFCD0110_202505",
+"fecha inicio" : "2025-05-15",
+"fecha fin" : "2025-09-26",
+"lugar" : "Donosti",
+"empresa" : "CEBANC",
+"url_drive" : "https://docs.google.com/presentation/d/1APMiTbTaZDGt2DyPXf5gcJxv--SWPONJ0nOrvrpPv4o/edit?usp=drive_link",
+"tutor":
+    {"Nombre":"Alberto Mozo",
+        "email" : "albertomozodocente@gmail.com",
+        "linked" : "https://www.linkedin.com/in/alberto-mozo-avellaned-80615713/",
+        "github" : "albertomozo"
+       
+    
+    },
+"alumnos" : [
+    {
+        "Nombre":"Monica",
+        "email" : "moniqueaghedo2001@gmail.com",
+        "linked" : "https://www.linkedin.com/",
+        "github" : "moniqueaghedo",
+        "url" : "https://curriculumvitae01.netlify.app/",
+        "inicio" : {
+            "html" : 1,
+            "css" : 1,
+            "JS" : 1
+        },
+        "fin" : {
+            "html" :0 ,
+            "css" : 0,
+            "JS" :0 
+        }
+    },
+    {
+        "Nombre":"Liz Cebrecos",
+        "email" : "liz.k.cebrecos@gmail.com",
+        "linked" : "http://Linkedin.com/in/lizcebrecos",
+        "github" : "Liz-katherine",
+        "url" : "https://cvindex.netlify.app/",
+        "inicio" : {
+            "html" : 0,
+            "css" : 0,
+            "JS" : 0
+        },
+        "fin" : {
+            "html" : 2,
+            "css" : 1,
+            "JS" : 0
+        }
+    },
+    
+    {
+        "Nombre":"Maryury Alexandra Caballero Montes",
+        "email" : "m.alexandra1118@gmail.com",
+        "linked" : "https://www.linkedin.com/in/maryuryalexandracaballeromontes?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        "github" : "Maryu1118",
+        "url" : "https://cvmaryurycaballero.netlify.app/",
+        "inicio" : {
+            "html" : 0,
+            "css" : 0,
+            "JS" : 0
+        },
+            "fin" : {
+            "html" : 4,
+            "css" : 4,
+            "JS" : 4
+        }
+    },
+    {
+
+    
+        "Nombre":"Jimena Andrea Flores Garro",
+        "email" : "jfgarro13@gmail.com",
+        "linked" : "https://www.linkedin.com/in/jimena-andrea-flores-garro-76b78a1b2/",
+        "github" : "Jimena2002-flow",
+        "url" : "https://cv-jfgarro.netlify.app/",
+        "inicio" :{
+            "html" : 0,
+            "css" : 0,
+            "JS" : 0
+        },
+        "fin" : {
+            "html" : 4,
+            "css" : 4,
+            "JS" : 4
+        }
+    },
+    {
+            "Nombre":"Josymar Pateti",
+            "email" : "jsrph9@gmail.com",
+            "linked" : "https://www.linkedin.com/in/josymar-pateti-12a2a1366/",
+            "github" : "jsr707",
+            "url" : "https://curriculumjoss.netlify.app/",
+            "inicio" : {
+                "html" : 4,
+                "css" : 2,
+                "JS" : 0
+            },
+            "fin" : {
+                "html" : 4,
+                "css" : 4,
+                "JS" : 4
+            }
+    },
+    {
+            "Nombre":"jimmy ortega",
+            "email" : "ortegajimmy275@gmail.com",
+            "linked" : "https://www.linkedin.com/in/jimmy-ortega-b8870634b/",
+            "github" : "Jim-909",
+            "url" : "https://cv-jimmy.netlify.app",
+            "inicio" : {
+                "html" : 0,
+                "css" : 0,
+                "JS" : 0
+            },
+                "fin" : {
+                "html" : 0,
+                "css" : 0,
+                "JS" : 0
+            }                    
+        
+    },
+    {
+        "Nombre":"Rocio Gomez",
+        "email" : "iveth5899@gmail.com",
+        "linked" : "https://www.linkedin.com/",
+        "github" : "rocio178",
+        "url" : "https://curriculumchio.netlify.app/",
+        "inicio" : {
+        "html" : 0,
+        "css" : 0,
+        "JS" : 0
+        },
+        "fin" : {
+        "html" : 4,
+        "css" : 4,
+        "JS" : 4
+        }
+    },
+    {
+            "Nombre":"Marcio Martins Barros",
+            "email" : "marciomunguluni@gmail.com",
+            "linked" : "",
+            "github" : "Marciomunguluni",
+            "url" : "https://cv-marcio.netlify.app/",
+            "inicio" : {    
+                "html" : 0,
+                "css" : 0,
+                "JS" : 0           
+            },
+            "fin" : {    
+                "html" : 3,
+                "css" : 3,
+                "JS" : 2
+             }
+    },
+    {
+            "Nombre":"Cesar Hamilton Bravo Naranjo",
+            "email" : "cesarhbn1@hotmail.com",
+            "linked" : "https://www.linkedin.com/in/cesar-hamilton-bravo-naranjo",
+            "github" : "cesarbravoz",
+            "url" : "https://cesarbravoz.github.io/",
+            "inicio" : {    
+                "html" : 3,
+                "css" : 3,
+                "JS" : 3            
+            },
+            "fin" : {    
+                "html" : 5,
+                "css" : 5,
+                "JS" : 5
+             }
+        },
+        {
+            "Nombre":"franco pizarro",
+            "email" : "fp9325467@gmail.com",
+            "linked" : "",
+            "github" : "franco-pizarro",
+            "url" : "https://cvcssfp.netlify.app/",
+            "inicio" : {    
+                "html" : 1,
+                "css" : 1,
+                "JS" : 1            
+            },
+            "fin" : {    
+                "html" : 4,
+                "css" : 4,
+                "JS" : 4
+             }
+        }
+    ]
+}
+    
+

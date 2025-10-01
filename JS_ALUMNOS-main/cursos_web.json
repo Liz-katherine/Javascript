@@ -1,0 +1,4 @@
+{ "titulo" : "Cursos de Formación",
+"año":"2022-2024",
+"cursos" : ["IFCD0210_202207.json","IFCD0210_202211.json","mf0493_202310.json","IFCD0210_202403.json","IFCD0110_202505.json"]
+}
