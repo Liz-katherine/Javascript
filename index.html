@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/logos/favicon.png">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Piazzere</title>   
+</head>
+<body>    
+    <nav id="navegador" class="zigzag_bottom">
+        <div class="nav-logo">
+            <img src="assets/img/logos/imagotipo.svg" alt="">
+            <p class="logo-peq">PI<span class="verde">A</span>Z<span class="rojo">Z</span>ERE</p>
+            
+        </div>
+        <div class="nav-enlaces">
+            <ul> 
+                <li><a class="txt1" href="index.html#seccion_ofertas"></a></li>
+                <li><a class="txt2" href="index.html#seccion_pedido"></a></li>
+                <li><a class="txt2bis" href="index.html#seccion_concurso"></a></li>
+                <li><a class="txt3" href="index.html#seccion_cocina"></a></li>                
+            </ul>                
+        </div>
+        <div class="nav-carrito">
+            <div class="caja-cantidad">
+                <p>0</p>
+            </div>            
+            <img class="carrito" src="assets/img/varias/carrito.svg" alt="">
+        </div>
+        <div class="nav-idiomas">
+            <ul>
+                <li><a id="eu" class="idioma" href="index.html#eu">eu</a></li>
+                <li><a id="es"class="idioma" href="index.html#es">es</a></li>
+                <li><a id="en" class="idioma" href="index.html#en">en</a></li>
+            </ul>
+        </div>
+        <div class="bars__menu">
+            <span class="line1__bars-menu"></span>
+            <span class="line2__bars-menu"></span>
+            <span class="line3__bars-menu"></span>
+        </div>
+    </nav>
+
+    <header id="cabecera" class="">
+        <div class="carousel">
+            <div class="frame">
+                <img src="assets/img/carousel/header_01.jpg" alt="">
+                <img src="assets/img/carousel/header_02.jpg" alt="">
+                <img src="assets/img/carousel/header_03.jpg" alt="">
+                <img src="assets/img/carousel/header_04.jpg" alt="">
+            </div>
+            <ul class="puntos">
+                <li class="punto">
+                    <img src="assets/img/logos/pointer02.png" alt=""></img> <img class="humo" src="assets/img/logos/pointer03.png" alt="">
+                </li>
+                <li class="punto">
+                    <img src="assets/img/logos/pointer01.png" alt="">
+                </li>
+                <li class="punto">
+                    <img src="assets/img/logos/pointer01.png" alt="">
+                </li>
+                <li class="punto">
+                    <img src="assets/img/logos/pointer01.png" alt="">
+                </li>
+            </ul>
+        </div>        
+    </header>
+
+    <main class="contenedor_principal">
+        
+        <section id="seccion_titular" class="zigzag">
+            <div class="titulo">
+                <img class="logo-principal" src="assets/img/logos/logo_pizzeria_3.svg" alt=""> 
+                <h1 class="txt60">Pasión por las pizzas artesanales</h1>
+            </div>
+        </section>
+
+        <section id="seccion_ofertas">            
+            <template id="template-ofertas">
+                <div  class="oferta">
+                    <img  class="imgOferta" src="" alt="">
+                    <p class="oTexto"></p>
+                    <div class="anadir" data-nombre data-precio>
+                        <img src="assets/img/varias/carritoADD.svg" class="add" alt="">
+                    </div>
+                    <p class="oEuros"></p>
+                </div>
+            </template>
+            <div class="segundo_titular">
+                <div class="texto_oferta">
+                    <h2 class="txt63">MENÚS DE OFERTA</h2>
+                    <p class="subtitular txt64">Aprovéchate de nuestras deliciosas combinaciones semanales al mejor precio</p>
+                </div>
+            </div>   
+            <div id="caja_ofertas">
+                <div id="ofertas">         
+                </div>
+                <div id="flechas">
+                    <img id="fiz" class="flecha fIzd" src="assets/img/carousel/izd.svg" alt="">
+                    <img id="fde" class="flecha fDch" src="assets/img/carousel/dch.svg" alt="">
+                </div>
+            </div>
+            
+        </section>        
+
+        <section id="seccion_pedido">
+            <div class="comprar">
+                <div class="comprar-text">
+                    <ul class="list-fact"></ul>
+                </div>
+                <p class="precio"></p>
+                <div class="pagar">
+                    
+                </div>
+            </div>                
+            <div class="oferta_titular">
+                <img class="img_fondo_bis" src="assets/img/varias/caja_pizza_abierta.svg" alt="">
+                <div class="texto_oferta">
+                    <h2 class="txt65">LA HACEMOS A TU GUSTO</h2>
+                    <p class="subtitular txt66">Si lo prefieres, puedes configurar el menú que más te apetezca<br>¡Adelante!</p>
+                </div>
+            </div>            
+            <div id="pedido">                
+                <div class="caja-cuaderno">                    
+                    
+                    <div id="cuaderno-03" class="cuaderno">
+                        <div class="pestanas">
+                            <img id="pest01" class="pesta" src="assets/img/pizza/pestana_01b.png" alt="">
+                            <img id="pest02" class="pesta" src="assets/img/pizza/pestana_02b.png" alt="">
+                            <img id="pest03" class="pesta" src="assets/img/pizza/pestana_03.png" alt="">
+                        </div>
+                        <img class="imgLibreta" src="assets/img/pizza/libreta.png" alt="">
+                        <div class="contenido-cuaderno">
+                            <div class="part01">
+                                <p class="txt41">Y para rematar...</p>
+                                <img src="assets/img/pizza/boli.png" alt="">  
+                            </div>
+                            <div class="part02">
+                                <p class="tamano txt42">Patatas:</p>
+                                <img src="assets/img/pizza/boli01.png" alt="">
+                                <div class="part02-opc">
+                                    <p id="oPfi" class="nota5 txt43">Finas</p>
+                                    <p id="oPde" class="nota5 txt44">Deluxe</p>
+                                    <p id="oPcq" class="nota5 txt45">Con Queso</p>
+                                </div>
+                            </div>
+                            <div class="part03">
+                                <p class="masa txt46">Otros:</p>
+                                <img src="assets/img/pizza/boli02.png" alt="">
+                                <div class="part03-opc">
+                                    <p id="oPol" class="nota5 txt47">alas Pollo</p>
+                                    <p id="oAce" class="nota5 txt48">aros Cebolla</p>
+                                    <p id="oNug" class="nota5 txt49">nuggtes</p>
+                                </div>
+                            </div>
+                            <div class="part04">
+                                <p class="ingredientes txt50">helados:</p>
+                                <img src="assets/img/pizza/boli03.png" alt="">
+                                <div class="part04-opc01">
+                                    <p id="oH1" class="nota5 txt51">menta</p>
+                                    <p id="oH2" class="nota5 txt52">chocolate</p>
+                                    <p id="oH3" class="nota5 txt53">vainilla</p>
+                                </div>
+                                <div class="part04-opc02">
+                                    <p id="oH4" class="nota5 txt54">fresa</p>
+                                    <p id="oH5" class="nota5 txt55">limón</p>
+                                    <p id="oH6" class="nota5 txt56">piña</p>
+                                </div>
+                                <div class="part04-opc03">
+                                    <p id="oH7" class="nota5 txt57">nata</p>
+                                    <p id="oH8" class="nota5 txt58">queso</p>
+                                    <p id="oH9" class="nota5 txt59">macadamia</p>
+                                </div>
+                            </div>
+                            <div id="selecciones3" class="selectBoli">
+                                
+                            </div>                    
+                        </div>                
+                    </div>
+    
+                    <div id="cuaderno-02" class="cuaderno">
+                        <div class="pestanas">
+                            <img id="pest01" class="pesta" src="assets/img/pizza/pestana_01b.png" alt="">
+                            <img id="pest02" class="pesta" src="assets/img/pizza/pestana_02.png" alt="">
+                            <img id="pest03" class="pesta" src="assets/img/pizza/pestana_03b.png" alt="">
+                        </div>
+                        <img class="imgLibreta" src="assets/img/pizza/libreta.png" alt="">
+                        <div class="contenido-cuaderno">
+                            <div class="part01">
+                                <p class="txt23">¿algo para beber?</p>
+                                <img src="assets/img/pizza/boli.png" alt="">  
+                            </div>
+                            <div class="part02">
+                                <p class="tamano txt24">aguas:</p>
+                                <img src="assets/img/pizza/boli01.png" alt="">
+                                <div class="part02-opc">
+                                    <p id="agu" class="nota4 txt25">agua</p>
+                                    <p id="aguG" class="nota4 txt26">agua con gas</p>
+                                </div>
+                            </div>
+                            <div class="part03">
+                                <p class="masa txt27">cervezas:</p>
+                                <img src="assets/img/pizza/boli02.png" alt="">
+                                <div class="part03-opc">
+                                    <p id="cKel" class="nota4 txt28">keler</p>
+                                    <p id="cEga" class="nota4 txt29">e.galicia</p>
+                                    <p id="cSN" class="nota4 txt30">sin alcohól</p>
+                                </div>
+                            </div>
+                            <div class="part04">
+                                <p class="ingredientes txt31">refrescos:</p>
+                                <img src="assets/img/pizza/boli03.png" alt="">
+                                <div class="part04-opc01">
+                                    <p id="b1" class="nota4 txt32">coca Cola</p>
+                                    <p id="b2" class="nota4 txt33">coca cola light</p>
+                                    <p id="b3" class="nota4 txt34">coca cola zero</p>
+                                </div>
+                                <div class="part04-opc02">
+                                    <p id="b4" class="nota4 txt35">sprite</p>
+                                    <p id="b5" class="nota4 txt36">red bull</p>
+                                    <p id="b6" class="nota4 txt37">burn</p>
+                                </div>
+                                <div class="part04-opc03">
+                                    <p id="b7" class="nota4 txt38">limonada</p>
+                                    <p id="b8" class="nota4 txt39">naranjada</p>
+                                    <p id="b9" class="nota4 txt40">mosto</p>
+                                </div>
+                            </div>
+                            <div id="selecciones2" class="selectBoli">
+                            </div>                    
+                        </div>                
+                    </div>
+                    
+                   <div id="cuaderno-01" class="cuaderno">
+                        <div class="pestanas">
+                            <img id="pest01" class="pesta" src="assets/img/pizza/pestana_01.png" alt="">
+                            <img id="pest02" class="pesta" src="assets/img/pizza/pestana_02b.png" alt="">
+                            <img id="pest03" class="pesta" src="assets/img/pizza/pestana_03b.png" alt="">
+                        </div>
+                        <img class="imgLibreta" src="assets/img/pizza/libreta.png" alt="">
+                        <div class="contenido-cuaderno">
+                            <div class="part01">
+                                <p class="txt4">elige tu pizza favorita!</p>
+                                <img src="assets/img/pizza/boli.png" alt="">  
+                            </div>
+                            <div class="part02">
+                                <p class="tamano txt5">tamaño:</p>
+                                <img src="assets/img/pizza/boli01.png" alt="">
+                                <div class="part02-opc">
+                                    <p id="peq" class="nota1 txt6">pequeña</p>
+                                    <p id="med" class="nota1 txt7">mediana</p>
+                                    <p id="fam" class="nota1 txt8">familiar</p>
+                                </div>
+                            </div>
+                            <div class="part03">
+                                <p class="masa txt9">masa:</p>
+                                <img src="assets/img/pizza/boli02.png" alt="">
+                                <div class="part03-opc">
+                                    <p id="fin" class="nota2 txt10">fina</p>
+                                    <p id="gru" class="nota2 txt11">gruesa</p>
+                                    <p id="cqu" class="nota2 txt12">con queso</p>
+                                </div>
+                            </div>
+                            <div class="part04">
+                                <p class="ingredientes txt13">ingredientes:</p>
+                                <img src="assets/img/pizza/boli03.png" alt="">
+                                <div class="part04-opc01">
+                                    <p id="1" class="nota3 txt14">extra queso</p>
+                                    <p id="2" class="nota3 txt15">queso cabra</p>
+                                    <p id="3" class="nota3 txt16">aceitunas</p>
+                                </div>
+                                <div class="part04-opc02">
+                                    <p id="4" class="nota3 txt17">pim.rojos</p>
+                                    <p id="5" class="nota3 txt18">pim.verdes</p>
+                                    <p id="6" class="nota3 txt19">salami</p>
+                                </div>
+                                <div class="part04-opc03">
+                                    <p id="7" class="nota3 txt20">champis</p>
+                                    <p id="8" class="nota3 txt21">cebolla</p>
+                                    <p id="9" class="nota3 txt22">bacon</p>
+                                </div>
+                            </div>
+                            <div id="selecciones">
+                                <img id="nota01" src="assets/img/pizza/select-tam.png" class="nota1Sel" alt="">
+                                <img id="nota02" src="assets/img/pizza/select-tipo.png" class="nota2Sel" alt="">
+            
+                            </div>                    
+                        </div>                
+                    </div>
+    
+                </div>
+    
+                <div class="caja-resultado">
+                    <div id="resultado">
+                        <div class="anadir">
+                            <img id='addTocart' src="assets/img/varias/carritoADD.svg" alt="">
+                        </div>
+                        <img class="pizza" src="assets/img/pizza/base.png" alt="">
+                        <!--  -->
+                    </div>
+                    <div id="precio">
+                        <!--  -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="seccion_formulario">
+            <div class="segundo_titular">
+                <div class="texto_oferta">
+                    <h2 class="txt67">OIDO COCINA!</h2>
+                    <p class="subtitular txt68">Bien a domicilio o recoger en local, tu pedido estará listo en menos de 20 minutos</p>
+                </div>
+            </div>
+            <div class="contenedor_form">
+                <div class="izd">
+                    <img src="assets/img/ofertas/ofertas.jpg" alt="">
+                </div>
+                <div class="der">
+                    <p class="subtitulos txt69">
+                        datos de contacto
+                    </p>
+                    <article class="container-pedido">
+                        <div class="doPedido">
+                            <ul>
+                                <li class="list active">
+                                    <div class="box">
+                                        <span class="icon">
+                                            <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 4H19C19.5523 4 20 4.44771 20 5V19C20 19.5523 19.5523 20 19 20H5C4.44772 20 4 19.5523 4 19V5C4 4.44772 4.44771 4 5 4ZM2 5C2 3.34315 3.34315 2 5 2H19C20.6569 2 22 3.34315 22 5V19C22 20.6569 20.6569 22 19 22H5C3.34315 22 2 20.6569 2 19V5ZM12 12C9.23858 12 7 9.31371 7 6H9C9 8.56606 10.6691 10 12 10C13.3309 10 15 8.56606 15 6H17C17 9.31371 14.7614 12 12 12Z" fill="currentColor" /></svg>
+                                        </span>
+                                        <span class="text txt70">domicilio</span></div>
+                                </li>
+                                <li class="list">
+                                    <div class="box">
+                                        <span class="icon">
+                                            <svg
+                                                width="24"
+                                                height="24"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                <path
+                                                    fill-rule="evenodd"
+                                                    clip-rule="evenodd"
+                                                    d="M5.79166 2H1V4H4.2184L6.9872 16.6776H7V17H20V16.7519L22.1932 7.09095L22.5308 6H6.6552L6.08485 3.38852L5.79166 2ZM19.9869 8H7.092L8.62081 15H18.3978L19.9869 8Z"
+                                                    fill="currentColor"
+                                                />
+                                                <path
+                                                    d="M10 22C11.1046 22 12 21.1046 12 20C12 18.8954 11.1046 18 10 18C8.89543 18 8 18.8954 8 20C8 21.1046 8.89543 22 10 22Z"
+                                                    fill="currentColor"
+                                                />
+                                                <path
+                                                    d="M19 20C19 21.1046 18.1046 22 17 22C15.8954 22 15 21.1046 15 20C15 18.8954 15.8954 18 17 18C18.1046 18 19 18.8954 19 20Z"
+                                                    fill="currentColor"
+                                                />
+                                                </svg>
+                                        </span>
+                                        <span class="text txt71">recoger</span></div>
+                                </li>
+                                <div class="indicator"></div>
+                            </ul>
+                        </div>
+                    </article>
+                    <form action="" class="form">
+                        <!-- nombre -->
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" required>
+                            <label for="name" class="lb">
+                                <span class="text-name txt72">nombre</span>
+                            </label>
+                        </div>
+                        <p class="formulario__input-error txt73" id="name-error">el nombre tiene que ser de 4 a 16 dígitos y solo puede contener letras y espacios</p>
+                        <!-- apellido -->
+                        <div class="form-group">
+                            <input type="text" name="surname" id="surname" required>
+                            <label for="surname" class="lb">
+                                <span class="text-name txt74">apellidos</span>
+                            </label>
+                        </div>
+                        <p class="formulario__input-error txt75" id="surname-error">el apellido tiene que ser de 4 a 16 dígitos y solo puede contener letras y espacios</p>
+                        <!-- teléfono -->
+                        <div class="form-group">
+                            <input type="tel" name="phone" id="phone" required>
+                            <label for="phone" class="lb">
+                                <span class="text-name txt76">teléfono</span>
+                            </label>
+                        </div>
+                        <p class="formulario__input-error txt77" id="phone-error">el telefono solo puede contener numeros y el maximo son 14 dígitos</p>
+                        <!-- email -->
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" required>
+                            <label for="email" class="lb">
+                                <span class="text-name txt78">correo electrónico</span>
+                            </label>
+                        </div>
+                        <p class="formulario__input-error txt79" id="email-error">el correo solo puede contener letras, numeros, puntos, guiones y guion bajo</p>
+                        <!-- direccion -->
+                        <div class="form-group">
+                            <input type="text" name="direc" id="direc" required>
+                            <label for="direc" class="lb">
+                                <span class="text-name txt80">dirección</span>
+                            </label>
+                        </div>
+                        <p class="formulario__input-error txt81" id="direc-error">el nombre tiene que ser de 4 a 16 dígitos y solo puede contener letras y espacios</p>
+                        <!-- socio -->
+                        <div class="form-group-acept">
+                            <input type="checkbox" name="acept" id="acept" required>
+                            <span class="txt108">Acepto la </span><a href="#" class="txt109">política de privacidad</a><span class="txt110"> del sitio.</span>
+                        </div>
+                        <div id="formulario__mensaje-error">
+                            <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor completa el formulario correctamente. </p>
+                        </div>
+                        <button type="submit" class="btn-submit txt82">realizar pedido</button>
+                        <div id="formulario__mensaje-successful">
+                            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                        </div>
+                    </form>
+                </div>                
+            </div>
+            <div class="contenedor_mapa">
+                <p class="subtitulos txt83">restaurante más cercano</p>
+                <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2903.7884145966136!2d-2.0060196840448836!3d43.297752483359474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd51b013f0513629%3A0x57e4ff3311f619d9!2s%C3%81rea%20Escuela%20de%20Dise%C3%B1o%20y%20Nuevas%20Tecnolog%C3%ADas!5e0!3m2!1ses!2ses!4v1649765445176!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+            </div>
+        </section>
+
+        <section id="seccion_concurso">
+            
+            <div class="oferta_titular">
+                <img class="img_fondo" src="assets/img/varias/caja_pizza_abierta.svg" alt="">
+                <div class="oferta_caja_izda">
+                    <img src="assets/img/ofertas/bn.jpg" alt="">
+                </div>
+                <div class="oferta_caja_dcha">
+                    <div class="texto_oferta">
+                        <h2 class="txt61">PIAZZERE CHALLENGER</h2>
+                        <p class="subtitular txt62">si tu provincia es la que más pedidos realiza tendrás un descuento especial en tu compra</p>
+                    </div>
+                    <div class="grafico">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>                
+            </div>  
+        </section>
+
+        <section id="seccion_cocina">
+            <div class="segundo_titular">
+                <div class="texto_oferta">
+                    <h2 class="txt84">NUESTRO EQUIPAZO</h2>
+                    <p class="subtitular txt85">profesionalidad y pasión, nuestro sello identitario para darte un servicio y calidad inigualables</p>
+                </div>
+            </div>   
+            <div class="contenedor_tarjetas">
+                <div class="tarjeta">
+                    <img class="humo hm1" src="assets/img/logos/pointer03.png" alt="">
+                    <div class="sup">
+                        <img src="assets/img/cocina/cocinero_fondo_01.jpg" alt="">
+                        <img class="sobre_img" src="assets/img/cocina/cocinero_frente_01.png" alt="">                        
+                    </div>
+                    <div class="inf">
+                        <p class="nombre">Manuel Sotomonte</p>
+                        <p class="cargo txt86">cocinero</p>
+                        <p class="resumen txt87">si la pasión por la pizza fuese una religión, yo estaría en el baticano con devoción</p>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img class="humo hm2" src="assets/img/logos/pointer03.png" alt="">
+                    <div class="sup">
+                        <img src="assets/img/cocina/cocinero_fondo_02.jpg" alt="">
+                        <img class="sobre_img" src="assets/img/cocina/cocinero_frente_02.png" alt="">                        
+                    </div>
+                    <div class="inf">
+                        <p class="nombre">Maixa Taxiar</p>
+                        <p class="cargo txt88">marketing & rrss</p>
+                        <p class="resumen txt89">la frescura de nuestros ingredientes son trending topic cada día ;)</p>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img class="humo hm3" src="assets/img/logos/pointer03.png" alt="">
+                    <div class="sup">
+                        <img src="assets/img/cocina/cocinero_fondo_03.jpg" alt="">
+                        <img class="sobre_img" src="assets/img/cocina/cocinero_frente_03.png" alt="">                        
+                    </div>
+                    <div class="inf">
+                        <p class="nombre">Nora Bergara</p>
+                        <p class="cargo txt90">cocinera</p>
+                        <p class="resumen txt91">el secreto no está en la masa, sino en el gran trabajo en equipo</p>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img class="humo hm4" src="assets/img/logos/pointer03.png" alt="">
+                    <div class="sup">
+                        <img src="assets/img/cocina/cocinero_fondo_04.jpg" alt="">
+                        <img class="sobre_img" src="assets/img/cocina/cocinero_frente_04.png" alt="">                        
+                    </div>
+                    <div class="inf">
+                        <p class="nombre">Iker Aranburen</p>
+                        <p class="cargo txt92">ventas</p>
+                        <p class="resumen txt93">los detalles, a cualquier nivel, marcan la diferencia para con el cliente</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="zigzag">
+        <div class="columnas">
+            <div class="columna">
+                <p class="logo-peq">PI<span class="verde">A</span>Z<span class="rojo">Z</span>ERE</p>
+                <p class="txt94">¡Síguenos en las redes sociales!</p>
+                <div class="footer-iconos">
+                    <img src="assets/img/logos/Logo_LAD.png" alt="">
+                    <img src="assets/img/logos/fb.svg" alt="">
+                    <img src="assets/img/logos/tw.svg" alt="">
+                    <img src="assets/img/logos/gh.svg" alt="">
+                </div>
+            </div>
+            <div class="columna">
+                <h2>Links</h2>
+                <a class="txt95" href="">Quienes Somos</a>
+                <a class="txt96" href="">Contacto</a>
+                <a class="txt97" href="">Proyectos</a>
+                <a class="txt98" href="">Contacto</a>
+            </div>
+            <div class="columna">
+                <h2 class="txt99" >Servicios</h2>
+                <a class="txt100" href="">Diseño Gráfico</a>
+                <a class="txt101" href="">Diseño Web</a>
+                <a class="txt102" href="">Apps</a>
+                <a class="txt103" href="">Arte</a>
+                <a class="txt104" href="">Fotografía</a>
+            </div>
+            <div class="columna">
+                <h2 class="txt105" >Tienes alguna duda?</h2>
+                <div class="cajetin-contacto">
+                    <div class="fila-cajetin">
+                        <img src="assets/img/logos/placeholder.svg" alt="">
+                       <p class="txt106" >Parque empresarial Zuatzu, Donostia, Gipuzkoa.</p>
+                    </div>
+                    <div class="fila-cajetin">
+                        <img src="assets/img/logos/telephone.svg" alt="">
+                       <p>+34 943 123 123</p>
+                    </div>
+                    <div class="fila-cajetin">
+                        <img src="assets/img/logos/mail.svg" alt="">
+                       <p>piazzere@areafor.com</p>
+                    </div>
+                </div>
+            </div>           
+        </div>
+        <div class="copyrights txt107">
+            <p>Copyrights 2022 All right reserved / developed by MDMGN & LiquidArt developers</p>
+        </div>
+    </footer> 
+    <script src="assets/js/app.js" type="module"></script>
+</body>
+</html>
