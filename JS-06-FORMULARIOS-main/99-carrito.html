@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda</title>
+</head>
+<body>
+    <h1>Mi Tienda Online</h1>
+    
+    <div id="productos">
+        <h2>Productos Disponibles</h2>
+        
+        <div class="producto" data-id="1" data-precio="25.99">
+            <h3>Camiseta</h3>
+            <p>Precio: €25.99</p>
+            <label>Cantidad: </label>
+            <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+        </div>
+        
+        <div class="producto" data-id="2" data-precio="45.50">
+            <h3>Pantalón</h3>
+            <p>Precio: €45.50</p>
+            <label>Cantidad: </label>
+            <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+        </div>
+        
+        <div class="producto" data-id="3" data-precio="89.99">
+            <h3>Zapatillas</h3>
+            <p>Precio: €89.99</p>
+            <label>Cantidad: </label>
+            <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+        </div>
+        
+        <div class="producto" data-id="4" data-precio="15.75">
+            <h3>Gorra</h3>
+            <p>Precio: €15.75</p>
+            <label>Cantidad: </label>
+            <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+        </div>
+        
+        <div class="producto" data-id="5" data-precio="35.00">
+            <h3>Sudadera</h3>
+            <p>Precio: €35.00</p>
+            <label>Cantidad: </label>
+            <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div id="carrito">
+        
+        <h2>Resumen de Compra</h2>
+        <div id="resumen"></div>
+        <div id="total">
+            <h3>Total: €0.00</h3>
+        </div>
+        <button onclick="limpiarCarrito()">Limpiar Carrito</button>
+    </div>
+
+    <script>
+        function calcularTotal() {
+            // Completar: debe calcular subtotales y el total del carrito
+        }
+        
+        function limpiarCarrito() {
+            // Completar: debe reiniciar cantidades, resumen y total
+        }
+        
+        // Inicializar al cargar la página
+        calcularTotal();
+    </script>
+</body>
+</html>

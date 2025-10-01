@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ejercicio 3 - Formularios</title>
+<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+	}
+	
+	#form1{
+		width: 50%;
+		background-color: rgba(207,247,245,1.00);
+		margin-left: auto;
+		margin-right: auto;
+		padding: 10px;
+		font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+	}
+	#form1 fieldset{
+		border: 2px solid rgba(1,115,208,1.00);
+		padding: 10px;
+	}
+	#form1 legend{
+		font-size: 16px;
+		color: rgba(0,0,0,1.00);
+		font-weight: bold;
+		margin-bottom: 15px;
+	}
+	
+	#form1 label{
+		display: inline-block;
+        vertical-align: top;
+		width: 100px;
+		font-size: 14px;
+	/*background-color:rgba(23,176,117,1.00);*/
+		padding: 5px;
+	}
+	
+	#form1 input{
+		display: inline-block;
+		width: 100%;
+		height: 35px;
+		color: rgba(189,186,186,1.00);
+		font-size: 12px;
+		border: 0,5px solid rgba(72,72,72,1.00);
+		margin-bottom: 10px;
+	}
+	
+	
+	
+	#form1 input.boton{
+		background-color: rgba(245,247,248,1.00);
+		margin-top: 10px;
+		margin-bottom: 10px;
+		color: rgba(0,0,0,1.00);
+		border: 1px solid rgba(51,50,50,1.00);
+		height: 24px;
+		width: 120px;		
+	}
+	
+	#form1 input.boton:hover{
+		background-color: rgba(113,113,113,1.00);
+	}
+	
+
+	#form1 label.mas{
+		width: 70%;
+	}
+	.flexi{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .col50{
+        width: 49%;
+    }
+    #form1 input.x{
+        width: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<form id="form1" name="form1" method="post" action="">
+	<fieldset>
+		<legend>Compañías Telefónicas</legend>
+
+	<div class="flexi">
+
+		<div class="col50">
+		  	<label for="nombre">Nombre:</label>
+              <br>
+		  	<input name="nombre" type="text" id="nombre" required > 
+		</div>
+
+		<div class="col50">
+		  <label for="apellidos">Apellidos:</label>
+          <br>
+		  <input type="text" name="apellidos" id="apellidos">
+		</div>
+
+	</div>
+
+    <div class="flexi">
+		<div class="col50">
+		  	<label for="email">Email:</label>
+              <br>
+		  	<input type="email" name="email" id="email" required > 
+		</div>
+		<div class="col50">
+		  <label for="telefono">Teléfono:</label>
+          <br>
+		  <input type="text" name="telefono" id="telefono">
+		</div>
+	</div>
+		  
+		<label for="Operadora"  >Compañías:</label>
+		<!-- <p>Compañías:</p> -->
+		<br>
+		<input class="x" type="radio" name="Operadora" id="vodafone" value="Vodafone">
+		<label for="Vodafone">Vodafone</label>
+		<br>
+
+		<input class="x" type="radio" name="Operadora" value="Movistar"  required>
+		<label for="Movistar">Movistar</label>
+		<br>
+
+		<input class="x" type="radio" name="Operadora" value="Euskaltel">
+		<label for="Euskaltel">Euskaltel</label>
+		<br>
+
+		  <br><br>
+		  
+		  <input class="x" type="checkbox" name="acepto" id="acepto" value="Acepto" required>
+		  	<label for="acepto" class="mas">
+			Sí, <a href="pdf/proteccion-datos.pdf" target="_blank">acepto</a> la política de privacidad de datos
+			</label>
+		  
+		<br>
+	  
+	  <input type="button" name="submit" id="submit" value="recorrer" class="boton" onClick="recorrer()">	 
+	  	
+
+<!-- lo que pone en "value" es lo que se ve en el botón 
+	   <input type="reset" name="reset" id="reset" value="Borrar" class="boton">
+-->
+   </fieldset>
+   <div id="respuesta"></div>
+   <script>
+	   function recorrer()
+	   {
+          respuesta = '<strong>for (i=0; i< document.forms[0].elements.length; i++)</strong><br>';
+          console.log(document.form1.elements.length);
+          
+          for (i=0; i< document.forms[0].elements.length; i++)
+          {
+                
+                respuesta += document.form1.elements[i].name  + ' = ' +  document.form1.elements[i].value ;
+				respuesta +=  ' type = ' +  document.form1.elements[i].type
+                if ((document.form1.elements[i].type == 'radio' || document.form1.elements[i].type == 'checkbox') && document.form1.elements[i].checked){
+                    respuesta += '<strong> CHECKED</strong>';
+                }
+				
+                respuesta += '<br>';        
+         }
+         document.getElementById("respuesta").innerHTML = respuesta;
+	   }
+
+	   
+   </script>
+</form>
+
+</body>
+</html>

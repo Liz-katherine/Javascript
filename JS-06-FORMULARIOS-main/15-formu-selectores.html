@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <form>
+        <input type="text" name="Nombre" id="nombre" class="formu" placeholder="Intrododuce nombre..."><br>
+        <input type="password" name="password" placeholder="Introduce tu contraseña" autocomplete><br>
+        <input type="color" name="color" placeholder="Intrododuce color..."><br>
+        <input type="date" name="data" ><br>
+        <input type="email" name="mail" placeholder="Email" ><br>
+        
+        <textarea name="textarea" placeholder="Introduce" columns="250" rows="6">Introduce tu comentario</textarea><br>
+        Provincias :
+        <select name="provincias">
+            <option value="01">Araba</option>
+            <option value="20">Gipuzkoa</option>
+            <option value="31">Nafarroa</option>
+            <option value="48">Bizkaia</option>
+            <option value="99">Bestea</option>
+        </select><br>
+        <fieldset>
+            <legend>Conocimiemtos informatica</legend> 
+            HTML <input type="checkbox" name="conocimientos[]" value="HTML"   >   
+            CSS <input type="checkbox" name="conocimientos[]"  value="CSS"  >
+            JavaScript <input type="checkbox"value="JS" name="conocimientos[]"    > 
+            
+             
+        </fieldset><br>
+            ¿Eres Mayor de edad?<br>
+            Si
+            <input type="radio" name="mayor" value="S"> No
+            <input type="radio" name="mayor" value="N">
+            <br>
+
+        <input type="submit" value="enviar">
+
+
+
+    </form>
+    <script>
+        /* accesos a input  HTML */
+        console.log('ACCESOS A HTML POR ');
+        console.log('getElementById' );
+        console.log(document.getElementById('nombre'));
+        console.log('getElementByName');
+        console.log(document.getElementsByName('Nombre'));
+        console.log('getElementByClassName'); 
+        console.log(document.getElementsByClassName('formu'));
+        console.log('getElementByTagName');
+        console.log(document.getElementsByTagName('input'));
+        console.log('QUERY SELECTOR');
+        console.log(`document.querySelector('#nombre')`);
+        console.log(document.querySelector('#nombre'))
+        console.log(`document.querySelector('input')`);
+        console.log(document.querySelector('input'))
+        console.log(`document.querySelectorAll('input')`);
+        console.log(document.querySelectorAll('input'))
+    </script>
+</body>
+</html>

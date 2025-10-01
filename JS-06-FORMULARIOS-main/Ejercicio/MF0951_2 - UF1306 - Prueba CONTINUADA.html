@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario Moderno</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #1d2129;
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .password-input-container {
+            position: relative;
+            width: 100%;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        /* Ajuste para inputs con icono */
+        .password-input-container input {
+            padding-right: 40px;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #8a8d91;
+        }
+        /* NUEVO: Estilos para el grupo de la casilla de verificación */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* Espacio entre la casilla y el texto */
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto; /* La casilla no debe ocupar todo el ancho */
+            margin: 0;
+        }
+        .checkbox-group label {
+            margin-bottom: 0; /* Quitar el margen inferior */
+            font-weight: normal;
+        }
+        .checkbox-group a {
+            color: #1877f2;
+            text-decoration: none;
+        }
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        input[type="submit"] {
+            background-color: #1877f2;
+            color: white;
+        }
+        input[type="submit"]:hover {
+            background-color: #166fe5;
+        }
+        input[type="reset"] {
+            background-color: #e4e6eb;
+            color: #4b4f56;
+        }
+        input[type="reset"]:hover {
+            background-color: #dcdfe3;
+        }
+        #error-messages {
+            color: #fa383e;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+       .container{ width: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Formulario de Registro</h1>
+        <div id="error-messages"></div>
+
+        <form id="registroForm" action="procesar.php" method="post" novalidate>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <div class="password-input-container">
+                    <input type="password" id="password" name="password" required>
+                    <span class="toggle-password" id="togglePassword">
+                        <i class="fa-solid fa-eye-slash"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password2">Repetir contraseña:</label>
+                <div class="password-input-container">
+                    <input type="password" id="password2" name="password2" required>
+                    <span class="toggle-password" id="togglePassword2">
+                        <i class="fa-solid fa-eye-slash"></i>
+                    </span>
+                </div>
+            </div>
+
+             <div class="container">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Número de teléfono">
+            </div>
+            <hr>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="terminos" name="terminos" required>
+                <label for="terminos">He leído y acepto los <a href="#">términos y condiciones</a></label>
+            </div>
+            
+            <div class="button-group">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Borrar">
+            </div>
+           
+</div>
+
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script>
+        const form = document.getElementById('registroForm');
+        const errorContainer = document.getElementById('error-messages');
+
+        function setupPasswordToggle(inputId, toggleId) {
+            const passwordInput = document.getElementById(inputId);
+            const toggleIcon = document.getElementById(toggleId);
+
+            toggleIcon.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.querySelector('i').classList.toggle('fa-eye');
+                this.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+        }
+
+        setupPasswordToggle('password', 'togglePassword');
+        setupPasswordToggle('password2', 'togglePassword2');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            errorContainer.innerHTML = '';
+
+            const nombre = form.nombre.value.trim();
+            const email = form.email.value.trim();
+            const password = form.password.value;
+            const password2 = form.password2.value;
+            
+            const errors = [];
+
+            if (!nombre || !email || !password || !password2) {
+                errors.push('Todos los campos son obligatorios.');
+            }
+
+            if (password && password2 && password !== password2) {
+                errors.push('Las contraseñas no coinciden.');
+            }
+            
+            if (password && password.length < 8) {
+                errors.push('La contraseña debe tener al menos 8 caracteres.');
+            }
+            
+            // NUEVO: Validar que la casilla de términos esté marcada
+            if (!form.terminos.checked) {
+                errors.push('Debes aceptar los términos y condiciones.');
+            }
+
+            if (errors.length > 0) {
+                errorContainer.innerHTML = errors.join('<br>');
+            } else {
+                alert('¡Registro exitoso!');
+                form.submit();
+            }
+        });
+
+        var input = document.querySelector("#telefono");
+        var iti = window.intlTelInput(input, {
+            initialCountry: "es",
+            geoIpLookup: function(callback) {
+                fetch("https://ipinfo.io/json?token=YOUR_TOKEN", {headers: {'Accept': 'application/json'}})
+                    .then(response => response.json())
+                    .then(data => callback(data.country))
+                    .catch(() => callback("us"));
+            },
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- Ejemplo para mostrar como interactuar entre HTML, CSS y JS -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - CSS - JS</title>
+    <script>
+        function accion02() {
+            alert ("has puldado el boton funcion");
+        }
+
+        function accion03() {
+            let nombre = document.getElementById('nombre');
+            console.log(`document.getElementById('nombre') `);
+            console.log(nombre);
+            console.log(`document.getElementById('nombre').value `);
+            console.log(nombre.value);
+        }
+
+        function accion04() {
+            let nombre = document.getElementById('nombre');
+            // nombre.style   nos permite acceder a todas las propiedades css del nodo DOM nombre 
+            nombre.style.border = '4px solid red ';
+            // las propiedades css  tipo background-color de traducen en js en Camel case es decir bacgroundColor
+            nombre.style.backgroundColor = 'green';
+            nombre.style.color = 'white';
+            nombre.style.fontSize = '20px';
+
+        }
+
+        function accion05() {
+            let nombre = document.getElementById('nombre');
+            nombre.value = nombre.value.toUpperCase();
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <h1>Interactuando en el FRONT</h1>
+    <input type="text" id="nombre" placeholder="introduce tu nombre">
+    <input type="button" value="alert" id="bt01" onclick="alert('as pulsado el boton ALERT')"><br>
+    <input type="button" value="funcion" id="bt02" onclick="accion02()"><br>
+    <input type="button" value="mira la consola" id="bt03" onclick="accion03()"><br>
+    <input type="button" value="cambiar propiedades" id="bt04" onclick="accion04()"><br>
+    <input type="button" value="cambiar valor" id="bt05" onclick="accion05()"><br>
+
+    
+</body>
+</html>

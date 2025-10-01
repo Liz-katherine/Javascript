@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda</title>
+</head>
+<body>
+    <h1>Mi Tienda Online</h1>
+    
+    <style>
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(5, 73, 50);
+            color: rgb(143, 143, 94);
+            margin: 0;
+            padding: 0;
+        }
+       
+
+    </style>
+
+    <div id="productos">
+        <h2>Productos Disponibles</h2>
+    </div>
+    
+    <hr>
+    
+    <div id="carrito">
+        <h2>Resumen de Compra</h2>
+        <div id="resumen"></div>
+        <div id="total">
+            <h3>Total: €0.00</h3>
+        </div>
+        <button onclick="limpiarCarrito()">Limpiar Carrito</button>
+    </div>
+
+    <script>
+        fetch("articulos.json")
+            .then(response => {    
+                if (response.ok)
+                    return response.text();
+                else
+                    throw new Error(response.status);
+            })
+            .then(data => {
+                console.log("Datos: " + data);
+                const productos = JSON.parse(data);
+
+                let contenedor = document.getElementById("productos");
+
+                productos.forEach(prod => {
+                    let div = document.createElement("div");
+                    div.classList.add("producto");
+                    div.dataset.id = prod.id;
+                    div.dataset.precio = prod.precio;
+
+                    div.innerHTML = `
+                        <h3>${prod.nombre}</h3>
+                        <p>Precio: €${prod.precio.toFixed(2)}</p>
+                        <label>Cantidad: </label>
+                        <input type="number" class="cantidad" min="0" value="0" onchange="calcularTotal()">
+                    `;
+
+                    contenedor.appendChild(div);
+                });
+
+                
+                calcularTotal();
+            })
+            .catch(err => {
+                console.error("ERROR: ", err.message);
+            });
+
+        function calcularTotal() {
+            let productos = document.querySelectorAll(".producto");
+            let resumen = document.getElementById("resumen");
+            let total = 0;
+            resumen.innerHTML = ""; 
+
+            productos.forEach(producto => {
+                let nombre = producto.querySelector("h3").innerText;
+                let precio = parseFloat(producto.dataset.precio);
+                let cantidad = parseInt(producto.querySelector(".cantidad").value) || 0;
+
+                if (cantidad > 0) {
+                    let subtotal = precio * cantidad;
+                    total += subtotal;
+
+                    let item = document.createElement("p");
+                    item.textContent = `${nombre} x ${cantidad} = €${subtotal.toFixed(2)}`;
+                    resumen.appendChild(item);
+                }
+            });
+
+            document.querySelector("#total h3").innerText = `Total: €${total.toFixed(2)}`;
+        }
+
+        function limpiarCarrito() {
+            let cantidades = document.querySelectorAll(".cantidad");
+            cantidades.forEach(input => input.value = 0);
+
+            document.getElementById("resumen").innerHTML = "";
+            document.querySelector("#total h3").innerText = "Total: €0.00";
+        }
+    </script>
+</body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

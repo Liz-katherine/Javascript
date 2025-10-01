@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <form>
+        <input type="text" name="Nombre" id="nombre" class="formu" placeholder="Intrododuce nombre..."><span id="nombreError"></span><br>
+        <!-- Añadirmos usuario, vamos a controlar que el usuario no esta en una lista (array) -->
+        <input type="text" name="Usuario" id="usuario" class="formu" placeholder="Intrododuce usuario..."><span id="usuarioError"></span><br>
+
+        <input type="password" name="password" placeholder="Introduce tu contraseña" autocomplete><br>
+        <input type="color" name="color" placeholder="Intrododuce color..."><br>
+        <input type="date" name="data" ><br>
+        <input type="email" name="mail" placeholder="Email" ><br>
+        
+        <textarea name="textarea" placeholder="Introduce" columns="250" rows="6">Introduce tu comentario</textarea><br>
+        Provincias :
+        <select name="provincias">
+            <option value="01">Araba</option>
+            <option value="20">Gipuzkoa</option>
+            <option value="31">Nafarroa</option>
+            <option value="48">Bizkaia</option>
+            <option value="99">Bestea</option>
+        </select><br>
+        <fieldset>
+            <legend>Conocimiemtos informatica</legend> 
+            HTML <input type="checkbox" name="conocimientos[]" value="HTML"   >   
+            CSS <input type="checkbox" name="conocimientos[]"  value="CSS"  >
+            JavaScript <input type="checkbox"value="JS" name="conocimientos[]"    > 
+            
+             
+        </fieldset><br>
+            ¿Eres Mayor de edad?<br>
+            Si
+            <input type="radio" name="mayor" value="S"> No
+            <input type="radio" name="mayor" value="N">
+            <br>
+
+        <input type="button" value="enviar" id="enviar">
+        <div id="resultado"></div>
+        
+
+
+
+    </form>
+    <script>
+        
+        let  usuarios = ['u1','u2','u3']; // lista de usuarios ocupados
+        // en un caso real se accedería a la lista de usuario sel sistema 
+       /* VAMOS A SEPARAR LOS LANZADORES DE EVENTOS DEL CODIGO HTML 
+       Vamos a usar los listeners */
+       
+
+       const btnEnviar = document.getElementById('enviar');
+       btnEnviar.addEventListener("click",validar,false);
+
+       const usuarioBlur =  document.getElementById('usuario');
+       usuarioBlur.addEventListener("blur",validarUsuario,false);
+
+
+
+
+       
+
+       function validar(){
+            let valido = true;
+            let listaerrores='<ul>';
+            let inputNombre = document.getElementById('nombre');
+            console.log('entro en funcion validar');
+            if (inputNombre.value.length < 2){
+                console.log('Nombre demasiado corto');
+                console.log(document.getElementById('nombre'));
+                //inputNombre.
+                document.getElementById("nombreError").innerHTML= '<p>Nombre demasiado corto</p>';
+                valido = false;
+                listaerrores += '<li>Nombre demasiado corto</li>';
+                /* marcar input en rojo */
+                inputNombre.style.borderColor = 'red';
+            }  
+            /* VALIDAR OTROS CAMPOS *
+
+
+
+
+            /* FIN VALIDAR OTROS CAMPOS */
+            listaerrores += '</ul>';
+             const result=document.getElementById('resultado');
+            if (valido){
+              result.style.backgroundColor = 'green';
+              result.style.color = 'white';
+              result.innerHTML = 'FORMULARIO CORRECTO';
+            } else {
+              result.style.backgroundColor = 'red';
+              result.style.color = 'white';
+              result.innerHTML = '<h3>FORMULARIO INCORRECTO</h3>' + listaerrores;
+
+            }
+
+       } 
+
+       function validarUsuario(){
+            console.log('entro');
+            usuario = document.getElementById('usuario');
+            if (usuarios.indexOf(usuario.value)!=-1)
+            {
+                // usuario exste en tabla
+                document.getElementById("usuarioError").innerHTML= '<p>Usuario existe en Sistema, elige otro </p>';
+                // marcar input con borde
+                //usuario.style.borderColor = 'red';
+                // poner el foco en el input usuario
+                //usuario.focus();
+
+                
+            }
+
+       }
+
+    </script>
+</body>
+</html>
