@@ -1,0 +1,258 @@
+header {
+    background-color: #006699;
+    color: white;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center; /* Centra el contenedor interno */
+    }
+    .contenedor-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      /* Limita el ancho y centra */
+/*       max-width: 600px;
+      width: 100%; */
+      /* justify-content: center; */
+    }
+    #logo {
+      width: 150px;
+      height: 150px;
+      margin-right: 20px;           /* Espacio entre imagen y texto */
+      /* flex-shrink: 0; */
+    }
+    #logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      box box-shadow: 0 0 10 rgba(0,0,0,0.2);
+    }
+.contenedor-header{
+    font-size: 1.8rem;
+    font font-weight: bold;
+    margin: 0 ;
+}
+
+    #titulo {
+      flex-grow: 1;
+      text-align: center;
+      color : white;
+      margin: 0;
+  }
+  
+  h2 {
+    color: #1a252f;
+    border-bottom: 2px solid #006699;
+    padding-bottom: 0.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.perfil-profesional {
+    text-align: justify;
+  }
+.datos-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; 
+  }
+    .datos-contenedor ul {
+    flex: 1;
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+    .linkedin-badge {
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+  }
+  .topnav {
+    text-align: center;
+    overflow: hidden;
+    background-color: #ccc;
+  }
+  .topnav a {
+    display: inline-block;
+    color: #1a252f;
+    padding: 8px;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .topnav a:hover {
+    background-color: white;
+   color: #006699;
+  }
+h3 {
+   color: #1a252f;
+   margin-top: 30px;
+}
+#experiencia {
+    padding: 20px;
+  }
+/*   .exp h3 {
+    color: #5c0b34;
+    margin-top: 0;
+  } */
+
+  /* Sección general */
+#experiencia {
+  background-color: #f9f9f9;
+  padding: 3rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Título de la sección */
+#experiencia h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1a252f;
+}
+
+/* Cada experiencia */
+.exp {
+  background-color: #fff;
+  border-left: 4px solid #3498db;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  /* box-shadow: 0 4px 8px rgba(25, 234, 18, 0.05); */
+}
+
+/* Título del puesto y empresa */
+.exp h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #006699;
+}
+
+/* Lista principal */
+.exp > ul {
+  margin-left: 1.2rem;
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
+/* Sublista de funciones */
+.exp > ul > ul {
+  list-style-type: circle;
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;
+  color: #555;
+}
+
+/* Íconos */
+#experiencia i {
+  color: #005b8f;
+}
+
+#inicio i {
+  color: #005b8f;
+}
+#formacion i {
+  color: #005b8f;
+}
+#idiomas i {
+  color: #005b8f;
+}
+
+  ul {
+    padding-left: 20px;
+  }
+  ul ul {
+    margin-top: 5px;
+  }
+   nav {
+    background-color: #003f5c;
+    text-align: center;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+section {
+    padding: 20px;
+    background-color: white;
+    margin: 1rem auto;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+ul {
+    padding-left: 1px;
+}
+#main-container{
+    margin: 150px auto;
+    width: 600px;
+}
+.form{
+  display:flex;
+  margin: 5px;
+}
+.for-1 {
+  border-top: 2px dotted rgb(70, 130, 180); 
+  padding-top: 2px;
+  margin: 0 10px;
+  background-color: rgb(230, 240, 255);
+  border-bottom-left-radius: 40px;
+  border-top-right-radius: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+}
+.for_logo img {
+  width: 200px;
+}
+table{
+    background-color: white;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+th{
+    padding: 10px;
+}
+th{
+    background-color: #2d2e31;
+    border-bottom: solid 5px #006699;
+    color: white;
+    }
+tr:nth-child(even){background-color : #ddd;
+}
+tr:hover{
+    background-color: #8ed8f1;
+    color: white;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 7px;
+    text-align: center;
+}
+footer {
+    background-color: #003f5c;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    margin-top: 2rem;
+}
+
