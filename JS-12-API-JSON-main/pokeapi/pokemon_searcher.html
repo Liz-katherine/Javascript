@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Pokémon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+        }
+
+        .search-container {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.9);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(238, 90, 36, 0.4);
+        }
+
+        .search-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .random-btn {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(68, 160, 141, 0.3);
+        }
+
+        .random-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(68, 160, 141, 0.4);
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: rgba(255, 107, 107, 0.9);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .pokemon-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.6s ease-out;
+            margin-bottom: 20px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pokemon-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .pokemon-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .pokemon-image img {
+            width: 120px;
+            height: 120px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+        }
+
+        .pokemon-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .pokemon-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+        .pokemon-id {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .pokemon-types {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .type-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .pokemon-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .detail-section {
+            background: rgba(108, 92, 231, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .detail-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 10px;
+        }
+
+        .stat-name {
+            font-weight: bold;
+            color: #2c3e50;
+            text-transform: capitalize;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.1rem;
+        }
+
+        .stat-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 4px;
+            margin: 0 15px;
+            overflow: hidden;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            border-radius: 4px;
+            transition: width 0.8s ease-out;
+        }
+
+        .abilities-list, .moves-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ability-item, .move-item {
+            background: rgba(108, 92, 231, 0.2);
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+            text-transform: capitalize;
+        }
+
+        .moves-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .physical-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .physical-stat {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 12px;
+        }
+
+        .physical-stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .physical-stat-label {
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        /* Colores para tipos de Pokémon */
+        .type-normal { background: #A8A878; }
+        .type-fire { background: #F08030; }
+        .type-water { background: #6890F0; }
+        .type-electric { background: #F8D030; }
+        .type-grass { background: #78C850; }
+        .type-ice { background: #98D8D8; }
+        .type-fighting { background: #C03028; }
+        .type-poison { background: #A040A0; }
+        .type-ground { background: #E0C068; }
+        .type-flying { background: #A890F0; }
+        .type-psychic { background: #F85888; }
+        .type-bug { background: #A8B820; }
+        .type-rock { background: #B8A038; }
+        .type-ghost { background: #705898; }
+        .type-dragon { background: #7038F8; }
+        .type-dark { background: #705848; }
+        .type-steel { background: #B8B8D0; }
+        .type-fairy { background: #EE99AC; }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .search-box {
+                flex-direction: column;
+            }
+            
+            .pokemon-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .pokemon-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🔍 Buscador Pokémon</h1>
+            <p class="subtitle">Descubre información detallada de tus Pokémon favoritos</p>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="pokemonInput" 
+                    class="search-input" 
+                    placeholder="Ingresa el nombre o ID del Pokémon (ej: pikachu, 25)"
+                >
+                <button id="searchBtn" class="search-btn">Buscar</button>
+                <button id="randomBtn" class="random-btn">Aleatorio</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            Buscando Pokémon...
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="pokemonResult"></div>
+    </div>
+
+    <script>
+        class PokemonSearcher {
+            constructor() {
+                this.baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
+                this.initializeElements();
+                this.bindEvents();
+            }
+
+            initializeElements() {
+                this.input = document.getElementById('pokemonInput');
+                this.searchBtn = document.getElementById('searchBtn');
+                this.randomBtn = document.getElementById('randomBtn');
+                this.loading = document.getElementById('loading');
+                this.error = document.getElementById('error');
+                this.result = document.getElementById('pokemonResult');
+            }
+
+            bindEvents() {
+                this.searchBtn.addEventListener('click', () => this.searchPokemon());
+                this.randomBtn.addEventListener('click', () => this.searchRandomPokemon());
+                this.input.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.searchPokemon();
+                    }
+                });
+            }
+
+            showLoading() {
+                this.loading.style.display = 'block';
+                this.error.style.display = 'none';
+                this.result.innerHTML = '';
+                this.searchBtn.disabled = true;
+                this.randomBtn.disabled = true;
+            }
+
+            hideLoading() {
+                this.loading.style.display = 'none';
+                this.searchBtn.disabled = false;
+                this.randomBtn.disabled = false;
+            }
+
+            showError(message) {
+                this.error.textContent = message;
+                this.error.style.display = 'block';
+                this.hideLoading();
+            }
+
+            async searchPokemon() {
+                const query = this.input.value.trim().toLowerCase();
+                
+                if (!query) {
+                    this.showError('Por favor, ingresa el nombre o ID de un Pokémon');
+                    return;
+                }
+
+                this.showLoading();
+
+                try {
+                    const response = await fetch(`${this.baseUrl}${query}`);
+                    
+                    if (!response.ok) {
+                        throw new Error('Pokémon no encontrado');
+                    }
+
+                    const pokemon = await response.json();
+                    this.displayPokemon(pokemon);
+                    this.hideLoading();
+                    
+                } catch (error) {
+                    this.showError(`Error: ${error.message}. Verifica que el nombre o ID sea correcto.`);
+                }
+            }
+
+            async searchRandomPokemon() {
+                const randomId = Math.floor(Math.random() * 1010) + 1; // Hasta la Gen 9
+                this.input.value = randomId;
+                await this.searchPokemon();
+            }
+
+            displayPokemon(pokemon) {
+                const pokemonCard = this.createPokemonCard(pokemon);
+                this.result.innerHTML = pokemonCard;
+                
+                // Animar las barras de estadísticas
+                setTimeout(() => {
+                    const statBars = document.querySelectorAll('.stat-fill');
+                    statBars.forEach(bar => {
+                        const width = bar.dataset.width;
+                        bar.style.width = width + '%';
+                    });
+                }, 100);
+            }
+
+            createPokemonCard(pokemon) {
+                const types = pokemon.types.map(type => 
+                    `<span class="type-badge type-${type.type.name}">${type.type.name}</span>`
+                ).join('');
+
+                const stats = pokemon.stats.map(stat => {
+                    const percentage = Math.min((stat.base_stat / 200) * 100, 100);
+                    return `
+                        <div class="stat-item">
+                            <span class="stat-name">${this.translateStat(stat.stat.name)}</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" data-width="${percentage}"></div>
+                            </div>
+                            <span class="stat-value">${stat.base_stat}</span>
+                        </div>
+                    `;
+                }).join('');
+
+                const abilities = pokemon.abilities.map(ability => 
+                    `<span class="ability-item">${ability.ability.name}</span>`
+                ).join('');
+
+                const moves = pokemon.moves.slice(0, 20).map(move => 
+                    `<span class="move-item">${move.move.name}</span>`
+                ).join('');
+
+                return `
+                    <div class="pokemon-card">
+                        <div class="pokemon-header">
+                            <div class="pokemon-image">
+                                <img src="${pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default}" 
+                                     alt="${pokemon.name}" 
+                                     onerror="this.src='${pokemon.sprites.front_default}'">
+                            </div>
+                            <div class="pokemon-info">
+                                <h2 class="pokemon-name">${pokemon.name}</h2>
+                                <p class="pokemon-id">#${pokemon.id.toString().padStart(3, '0')}</p>
+                                <div class="pokemon-types">${types}</div>
+                            </div>
+                        </div>
+
+                        <div class="pokemon-details">
+                            <div class="detail-section">
+                                <h3 class="detail-title">📊 Estadísticas Base</h3>
+                                <div class="stats-grid">${stats}</div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h3 class="detail-title">📏 Características Físicas</h3>
+                                <div class="physical-stats">
+                                    <div class="physical-stat">
+                                        <div class="physical-stat-value">${(pokemon.height / 10).toFixed(1)} m</div>
+                                        <div class="physical-stat-label">Altura</div>
+                                    </div>
+                                    <div class="physical-stat">
+                                        <div class="physical-stat-value">${(pokemon.weight / 10).toFixed(1)} kg</div>
+                                        <div class="physical-stat-label">Peso</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h3 class="detail-title">⚡ Habilidades</h3>
+                                <div class="abilities-list">${abilities}</div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h3 class="detail-title">🥊 Movimientos (Primeros 20)</h3>
+                                <div class="moves-list">${moves}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            translateStat(statName) {
+                const translations = {
+                    'hp': 'Vida',
+                    'attack': 'Ataque',
+                    'defense': 'Defensa',
+                    'special-attack': 'At. Especial',
+                    'special-defense': 'Def. Especial',
+                    'speed': 'Velocidad'
+                };
+                return translations[statName] || statName;
+            }
+        }
+
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', () => {
+            new PokemonSearcher();
+        });
+    </script>
+</body>
+</html>
